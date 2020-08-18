@@ -24,10 +24,7 @@ const Menu = () => {
     >
       {menuItems.map(item => (
         <div style={{ flexGrow: 1, textAlign: 'center' }}>
-          <a
-            href={`/${item.uri}`}
-            style={{ textDecoration: 'none', color: 'darkred' }}
-          >
+          <a href={`/`} style={{ textDecoration: 'none', color: 'darkred' }}>
             <b>{item.text}</b>
           </a>
         </div>
@@ -39,11 +36,11 @@ const Menu = () => {
 const bodyContainerStyle = {
   marginLeft: `auto`,
   marginRight: `auto`,
-  maxWidth: rhythm(48),
+  maxWidth: rhythm(42),
   padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
 }
 
-const logoOffset = -20
+const logoVerticalOffset = -20
 
 const Header = () => {
   return (
@@ -61,9 +58,9 @@ const Header = () => {
             src={Logo}
             style={{
               width: 200,
-              marginTop: logoOffset,
-              marginBottom: logoOffset,
-              marginLeft: logoOffset,
+              marginTop: logoVerticalOffset,
+              marginBottom: logoVerticalOffset,
+              marginLeft: -10,
             }}
           />
         </div>
@@ -71,7 +68,7 @@ const Header = () => {
       </header>
       <div
         style={{
-          marginBottom: 20,
+          marginBottom: 0,
           borderBottomColor: '#EEE',
           borderBottomWidth: 1,
           borderBottomStyle: 'solid',

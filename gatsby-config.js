@@ -23,6 +23,50 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-wordpress-experimental`,
+      options: {
+        url: process.env.WPGRAPHQL_URL || 'https://torontocurling.com/graphql',
+        schema: {
+          typePrefix: 'Wp',
+          timeout: 60 * 1000 * 2, // 2 mins
+        },
+        debug: {
+          graphql: {
+            showQueryVarsOnError: true,
+            writeQueriesToDisk: true,
+          },
+        },
+        excludeFieldNames: [
+          'category',
+          'categories',
+          'contentType',
+          'contentTypes',
+          'comment',
+          'comments',
+          'mediaItem',
+          'mediaItems',
+          'menu',
+          'menus',
+          'menuItem',
+          'menuItems',
+          'page',
+          'pages',
+          'post',
+          'posts',
+          'postFormat',
+          'postFormats',
+          'tag',
+          'tags',
+          'taxonomy',
+          'taxonomies',
+          'user',
+          'users',
+          'userRole',
+          'userRoles',
+        ],
+      },
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [

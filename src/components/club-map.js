@@ -183,7 +183,10 @@ export const ClubMap = ({ clubs }) => {
   })
 
   useEffect(() => {
-    if (mapInitialized) return
+    if (mapInitialized) {
+      initMap()
+      return
+    }
     const script = document.createElement('script')
     script.src =
       'https://maps.googleapis.com/maps/api/js?key=AIzaSyBpHOBeifASePkB_Jm2otvjzAk3EPEWN5w&sensor=false'

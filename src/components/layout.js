@@ -57,15 +57,18 @@ const Header = () => {
         }}
       >
         <div style={{ marginRight: 20 }}>
-          <img
-            src={Logo}
-            style={{
-              width: 200,
-              marginTop: logoVerticalOffset,
-              marginBottom: logoVerticalOffset,
-              marginLeft: -10,
-            }}
-          />
+          <a href="/">
+            <img
+              src={Logo}
+              style={{
+                width: 200,
+                marginTop: logoVerticalOffset,
+                marginBottom: logoVerticalOffset,
+                marginLeft: -10,
+                border: 0,
+              }}
+            />
+          </a>
         </div>
         <Menu />
       </header>

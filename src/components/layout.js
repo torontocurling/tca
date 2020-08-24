@@ -5,10 +5,10 @@ import Logo from '../assets/logo.svg'
 import { rhythm, scale } from '../utils/typography'
 
 const menuItems = [
-  { text: 'Learn to Curl', uri: 'learn-to-curl' },
-  { text: 'Select a League', uri: 'select-a-leage' },
-  { text: 'Locate a Facility', uri: 'locate-a-facility' },
-  { text: 'Find an Event', uri: 'find-an-event' },
+  { text: 'Learn to Curl', uri: '/' },
+  { text: 'Select a League', uri: '/' },
+  { text: 'Find an Event', uri: '/' },
+  { text: 'Find a Facility', uri: '/clubs' },
 ]
 
 const Menu = () => {
@@ -24,7 +24,10 @@ const Menu = () => {
     >
       {menuItems.map(item => (
         <div style={{ flexGrow: 1, textAlign: 'center' }}>
-          <a href={`/`} style={{ textDecoration: 'none', color: 'darkred' }}>
+          <a
+            href={item.uri}
+            style={{ textDecoration: 'none', color: 'darkred' }}
+          >
             <b>{item.text}</b>
           </a>
         </div>

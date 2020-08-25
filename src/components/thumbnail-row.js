@@ -5,15 +5,25 @@ const maxImageHeight = 120
 
 const Thumbnail = ({ uri, style }) => (
   <div style={style}>
-    <img
-      src={uri}
-      style={{
-        width: 'auto',
-        height: 'auto',
-        maxWidth: maxImageWidth,
-        maxHeight: maxImageHeight,
-      }}
-    />
+    {!!uri ? (
+      <img
+        src={uri}
+        style={{
+          width: 'auto',
+          height: 'auto',
+          maxWidth: maxImageWidth,
+          maxHeight: maxImageHeight,
+        }}
+      />
+    ) : (
+      <div
+        style={{
+          width: maxImageWidth,
+          height: maxImageHeight,
+          backgroundColor: '#eee',
+        }}
+      />
+    )}
   </div>
 )
 

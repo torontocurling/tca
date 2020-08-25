@@ -36,7 +36,14 @@
     "typography": "^0.16.19"
   },
   "devDependencies": {
-    "prettier": "2.0.5"
+    "@babel/core": "^7.11.4",
+    "@storybook/addon-actions": "^6.0.17",
+    "@storybook/addon-essentials": "^6.0.17",
+    "@storybook/addon-links": "^6.0.17",
+    "@storybook/react": "^6.0.17",
+    "babel-loader": "^8.1.0",
+    "prettier": "2.0.5",
+    "react-is": "^16.13.1"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
   "keywords": [
@@ -55,6 +62,8 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   }
 }

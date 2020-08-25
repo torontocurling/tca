@@ -29,6 +29,7 @@ module.exports = {
         schema: {
           typePrefix: 'Wp',
           timeout: 60 * 1000 * 2, // 2 mins
+          perPage: 5, // required b/c our server has memory issues
         },
         debug: {
           graphql: {
@@ -49,10 +50,10 @@ module.exports = {
           'menus',
           'menuItem',
           'menuItems',
-          'page',
-          'pages',
-          'post',
-          'posts',
+          // 'page',
+          // 'pages',
+          // 'post',
+          // 'posts',
           'postFormat',
           'postFormats',
           'tag',

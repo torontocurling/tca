@@ -20,7 +20,10 @@ const Thumbnail = ({ uri, style }) => (
         style={{
           width: maxImageWidth,
           height: maxImageHeight,
-          backgroundColor: '#eee',
+          backgroundColor: '#bbb',
+          backgroundImage: `url('${require('../assets/logo+transparent+grey.png')}')`,
+          backgroundSize: 'cover',
+          opacity: 0.3,
         }}
       />
     )}

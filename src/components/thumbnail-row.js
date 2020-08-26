@@ -40,7 +40,7 @@ export const ThumbnailRow = ({ imageUri, title, description }) => (
     }}
   >
     <Thumbnail uri={imageUri} style={{ width: 200, textAlign: 'center' }} />
-    <div style={{ marginLeft: 20 }}>
+    <div style={{ marginLeft: 20, paddingTop: 15 }}>
       <h3>{title}</h3>
       <p>{description}</p>
     </div>

@@ -26,7 +26,7 @@ const images = [
 
 console.log(images)
 
-export const CarouselHero = ({ label }) => {
+export const CarouselHero = ({ label, style }) => {
   const [currentIndex, setIndex] = useState(0)
 
   useTimeout(() => {
@@ -38,7 +38,7 @@ export const CarouselHero = ({ label }) => {
   }, 5000)
 
   return (
-    <>
+    <div style={style}>
       <style
         type="text/css"
         dangerouslySetInnerHTML={{
@@ -76,6 +76,6 @@ export const CarouselHero = ({ label }) => {
           {label}
         </h2>
       </div>
-    </>
+    </div>
   )
 }

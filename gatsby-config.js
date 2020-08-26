@@ -30,6 +30,7 @@ module.exports = {
           typePrefix: 'Wp',
           timeout: 60 * 1000 * 2, // 2 mins
           perPage: 5, // required b/c our server has memory issues
+          queryDepth: 5,
         },
         debug: {
           graphql: {

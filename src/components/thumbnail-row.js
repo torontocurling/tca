@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 
 const maxImageWidth = 180
 const maxImageHeight = 120
@@ -30,7 +31,7 @@ const Thumbnail = ({ uri, style }) => (
   </div>
 )
 
-export const ThumbnailRow = ({ imageUri, title, description }) => (
+export const ThumbnailRow = ({ imageUri, title, description, link }) => (
   <div
     style={{
       display: 'flex',
@@ -39,9 +40,15 @@ export const ThumbnailRow = ({ imageUri, title, description }) => (
       minHeight: maxImageHeight,
     }}
   >
-    <Thumbnail uri={imageUri} style={{ width: 200, textAlign: 'center' }} />
+    <Link to={link}>
+      <Thumbnail uri={imageUri} style={{ width: 200, textAlign: 'center' }} />
+    </Link>
     <div style={{ marginLeft: 20, paddingTop: 15 }}>
-      <h3>{title}</h3>
+      <h3>
+        <Link to={link} style={{ color: '#3275b8', textDecoration: 'none' }}>
+          {title}
+        </Link>
+      </h3>
       <p>{description}</p>
     </div>
   </div>

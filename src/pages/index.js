@@ -23,13 +23,15 @@ const parseContent = content => {
   return plainText
 }
 
-const PostItem = ({ title, content }) => {
+const PostItem = ({ title, content, slug }) => {
   const textContent = useMemo(() => parseContent(content))
 
-  return <ThumbnailRow title={title} description={textContent} />
+  return (
+    <ThumbnailRow title={title} description={textContent} link={`/${slug}`} />
+  )
 }
 
-const BlogIndex = ({ data, location }) => {
+const FrontPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allWpPost.edges
 
@@ -44,7 +46,7 @@ const BlogIndex = ({ data, location }) => {
   )
 }
 
-export default BlogIndex
+export default FrontPage
 
 export const pageQuery = graphql`
   query {
@@ -57,6 +59,7 @@ export const pageQuery = graphql`
       edges {
         node {
           date
+          slug
           title
           content
         }

@@ -1,10 +1,9 @@
-import React from 'react'
-import { Link, graphql } from 'gatsby'
-import { NewsPost } from '../components/news-post'
+import { graphql } from 'gatsby'
+import { PageBody } from '../components/page-body'
 
 import { rhythm, scale } from '../utils/typography'
 
-const PageTemplate = NewsPost
+const PageTemplate = PageBody
 
 export default PageTemplate
 
@@ -17,7 +16,6 @@ export const pageQuery = graphql`
     }
     wpPage(id: { eq: $id }) {
       id
-      date
       content
       title
     }

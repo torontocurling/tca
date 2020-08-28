@@ -5,6 +5,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const newsPostTemplate = path.resolve(`./src/templates/news-post.js`)
+  const pageTemplate = path.resolve(`./src/templates/page.js`)
   const result = await graphql(
     `
       {
@@ -12,7 +13,41 @@ exports.createPages = async ({ graphql, actions }) => {
           edges {
             node {
               id
-              slug
+              uri
+            }
+          }
+        }
+
+        allWpPage(limit: 50) {
+          edges {
+            node {
+              id
+              uri
+            }
+          }
+        }
+
+        allWpMenu {
+          edges {
+            node {
+              name
+              locations
+              id
+              menuItems {
+                nodes {
+                  label
+                  id
+                  path
+                  childItems {
+                    nodes {
+                      id
+                      label
+                      path
+                    }
+                  }
+                  url
+                }
+              }
             }
           }
         }
@@ -24,15 +59,26 @@ exports.createPages = async ({ graphql, actions }) => {
     throw result.errors
   }
 
-  // Create blog posts pages.
   const posts = result.data.allWpPost.edges
 
   posts.forEach((post, index) => {
     createPage({
-      path: post.node.slug,
+      path: post.node.uri,
       component: newsPostTemplate,
       context: {
         id: post.node.id,
+      },
+    })
+  })
+
+  const pages = result.data.allWpPage.edges
+
+  pages.forEach((page, index) => {
+    createPage({
+      path: page.node.uri,
+      component: pageTemplate,
+      context: {
+        id: page.node.id,
       },
     })
   })

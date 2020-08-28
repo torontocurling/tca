@@ -1,15 +1,27 @@
-import Typography from "typography"
+import Typography from 'typography'
 
 const typography = new Typography({
-  headerFontFamily: ["Raleway", "sans-serif"],
-  headerWeight: "700",
-  boldWeight: "700",
-  bodyFontFamily: ["Raleway", "sans-serif"],
-  bodyWeight: "400",
+  headerFontFamily: ['Raleway', 'sans-serif'],
+  headerWeight: '700',
+  boldWeight: '700',
+  bodyFontFamily: [
+    '-apple-system',
+    'BlinkMacSystemFont',
+    'Segoe UI',
+    'Roboto',
+    'Oxygen',
+    'Ubuntu',
+    'Cantarell',
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    'sans-serif',
+  ],
+  bodyWeight: '400',
   googleFonts: [
     {
-      name: "Raleway",
-      styles: ["400", "700"],
+      name: 'Raleway',
+      styles: ['400', '700'],
     },
   ],
 })

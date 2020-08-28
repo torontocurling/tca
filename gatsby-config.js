@@ -32,6 +32,24 @@ module.exports = {
           perPage: 5, // required b/c our server has memory issues
           queryDepth: 5,
         },
+        type: {
+          Page: {
+            limit:
+              process.env.NODE_ENV === `development`
+                ? // Lets just pull 50 posts in development to make it easy on ourselves.
+                  20
+                : // And all posts in production
+                  null,
+          },
+          Post: {
+            limit:
+              process.env.NODE_ENV === `development`
+                ? // Lets just pull 50 posts in development to make it easy on ourselves.
+                  20
+                : // And all posts in production
+                  null,
+          },
+        },
         debug: {
           graphql: {
             showQueryVarsOnError: true,
@@ -47,10 +65,10 @@ module.exports = {
           'comments',
           'mediaItem',
           'mediaItems',
-          'menu',
-          'menus',
-          'menuItem',
-          'menuItems',
+          // 'menu',
+          // 'menus',
+          // 'menuItem',
+          // 'menuItems',
           // 'page',
           // 'pages',
           // 'post',

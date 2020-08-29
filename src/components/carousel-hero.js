@@ -24,8 +24,6 @@ const images = [
   require('../assets/men.jpg'),
 ]
 
-console.log(images)
-
 export const CarouselHero = ({ label, style }) => {
   const [currentIndex, setIndex] = useState(0)
 

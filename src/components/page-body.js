@@ -1,9 +1,8 @@
 import React from 'react'
 import Layout from './layout'
-import SEO from './seo'
 import { Link } from './link'
 import { Colors } from '../constants/colors'
-import { rhythm, scale } from '../utils/typography'
+import { rhythm } from '../utils/typography'
 
 const findMenu = ({ uri, menus }) => {
   const primaryMenu = menus.find(menu => menu.node.name === 'Primary')
@@ -18,8 +17,6 @@ export const PageBody = ({ data, location, pageContext }) => {
   const siteTitle = data.site.siteMetadata.title
   const pageMenu = findMenu({ uri, menus })
   const menuItems = pageMenu?.childItems?.nodes || []
-
-  console.log({ menus, uri, pageMenu })
 
   return (
     <Layout {...{ location, pageContext }} title={siteTitle}>

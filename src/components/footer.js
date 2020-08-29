@@ -12,7 +12,7 @@ const LinkColumn = ({ label, path, childItems }) => (
         </Link>
       </li>
       {childItems.nodes?.map(({ label, path }) => (
-        <li>
+        <li key={path}>
           <Link to={path} style={{ color: Colors.grey }}>
             {label}
           </Link>
@@ -25,7 +25,6 @@ const LinkColumn = ({ label, path, childItems }) => (
 export const Footer = ({ menus }) => {
   const footerMenu = menus.find(({ node: { name } }) => name === 'Footer')
   const menuItems = footerMenu?.node?.menuItems || { nodes: [] }
-  console.log(menuItems)
 
   return (
     <div style={{ backgroundColor: '#555', color: '#eee' }}>
@@ -33,7 +32,7 @@ export const Footer = ({ menus }) => {
         <nav>
           <div style={{ display: 'flex', flexDirection: 'row' }}>
             {menuItems.nodes.map(menuItem => (
-              <LinkColumn {...menuItem} />
+              <LinkColumn key={menuItem.path} {...menuItem} />
             ))}
           </div>
         </nav>

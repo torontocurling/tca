@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from './layout'
 
-import { rhythm } from '../utils/typography'
+import { rhythm, scale } from '../utils/typography'
 
 const dateOptions = {
   weekday: 'long',

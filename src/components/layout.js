@@ -22,7 +22,7 @@ const Menu = () => {
       }}
     >
       {menuItems.map(item => (
-        <div style={{ flexGrow: 1, textAlign: 'center' }}>
+        <div key={item.text} style={{ flexGrow: 1, textAlign: 'center' }}>
           <a
             href={item.uri}
             style={{ textDecoration: 'none', color: 'darkred' }}

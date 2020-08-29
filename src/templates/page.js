@@ -1,8 +1,6 @@
 import { graphql } from 'gatsby'
 import { PageBody } from '../components/page-body'
 
-import { rhythm, scale } from '../utils/typography'
-
 const PageTemplate = PageBody
 
 export default PageTemplate

@@ -1,4 +1,7 @@
 /* global google */
+
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useEffect, useCallback, useRef } from 'react'
 
 let mapInitialized = false
@@ -67,7 +70,7 @@ const TCAmap = function () {
   }
 
   let hasMap = false
-  const markers = []
+  let markers = []
 
   let map
 
@@ -180,7 +183,7 @@ export const ClubMap = ({ clubs }) => {
   const initMap = useCallback(() => {
     map.current = TCAmap()
     map.current.init(clubs.map(club => club.node))
-  })
+  }, [map, clubs])
 
   useEffect(() => {
     if (mapInitialized) {

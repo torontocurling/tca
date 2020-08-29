@@ -1,8 +1,5 @@
-import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import { NewsPost } from '../components/news-post'
-
-import { rhythm, scale } from '../utils/typography'
 
 const NewsPostTemplate = NewsPost
 

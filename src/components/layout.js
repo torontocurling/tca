@@ -2,7 +2,8 @@ import React from 'react'
 import { Link } from 'gatsby'
 
 import Logo from '../assets/logo.svg'
-import { rhythm, scale } from '../utils/typography'
+import { Footer } from './footer'
+import { bodyContainerStyle } from './layout.styles'
 
 const menuItems = [
   { text: 'Learn to Curl', uri: '/' },
@@ -34,13 +35,6 @@ const Menu = () => {
       ))}
     </nav>
   )
-}
-
-const bodyContainerStyle = {
-  marginLeft: `auto`,
-  marginRight: `auto`,
-  maxWidth: rhythm(42),
-  padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
 }
 
 const logoVerticalOffset = -20
@@ -84,17 +78,7 @@ const Header = () => {
   )
 }
 
-const Footer = () => {
-  return (
-    <div style={{ backgroundColor: '#555', color: '#eee' }}>
-      <footer style={{ ...bodyContainerStyle }}>
-        © {new Date().getFullYear()} Toronto Curling Association
-      </footer>
-    </div>
-  )
-}
-
-const Layout = ({ location, title, children }) => {
+const Layout = ({ location, title, children, pageContext }) => {
   return (
     <>
       <Header />
@@ -105,7 +89,7 @@ const Layout = ({ location, title, children }) => {
       >
         <main>{children}</main>
       </div>
-      <Footer />
+      <Footer menus={pageContext.menus} />
     </>
   )
 }

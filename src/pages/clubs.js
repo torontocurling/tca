@@ -7,12 +7,12 @@ import { rhythm } from '../utils/typography'
 import { ThumbnailRow } from '../components/thumbnail-row'
 import { ClubMap } from '../components/club-map'
 
-const ClubIndex = ({ data, location }) => {
+const ClubIndex = ({ data, location, pageContext }) => {
   const siteTitle = data.site.siteMetadata.title
   const clubs = data.allWpClub.edges
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout {...{ location, pageContext }} title={siteTitle}>
       <SEO title="Curling Facilities" />
       <ClubMap clubs={clubs} />
       {clubs.map(({ node }) => (

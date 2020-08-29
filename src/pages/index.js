@@ -31,12 +31,12 @@ const PostItem = ({ title, content, slug }) => {
   )
 }
 
-const FrontPage = ({ data, location }) => {
+const FrontPage = ({ data, location, pageContext }) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allWpPost.edges
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout {...{ location, pageContext }} title={siteTitle}>
       <SEO title="All posts" />
       <CarouselHero label="Your GTA Curling Hub" style={{ marginBottom: 35 }} />
       {posts.map(({ node }) => (

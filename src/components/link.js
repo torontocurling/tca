@@ -6,9 +6,9 @@ export const Link = props => (
   <Gatsby.Link
     {...props}
     style={{
-      ...props.style,
       color: Colors.blue,
       textDecoration: 'none',
+      ...props.style,
     }}
   />
 )

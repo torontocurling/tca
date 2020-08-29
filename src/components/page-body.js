@@ -12,7 +12,8 @@ const findMenu = ({ uri, menus }) => {
   return primaryMenu.node.menuItems.nodes.find(({ url }) => url === uri)
 }
 
-export const PageBody = ({ data, location, pageContext: { uri, menus } }) => {
+export const PageBody = ({ data, location, pageContext }) => {
+  const { uri, menus } = pageContext
   const post = data.wpPage
   const siteTitle = data.site.siteMetadata.title
   const pageMenu = findMenu({ uri, menus })
@@ -21,7 +22,7 @@ export const PageBody = ({ data, location, pageContext: { uri, menus } }) => {
   console.log({ menus, uri, pageMenu })
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout {...{ location, pageContext }} title={siteTitle}>
       <div
         style={{
           display: 'flex',

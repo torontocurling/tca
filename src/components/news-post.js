@@ -17,12 +17,12 @@ const formatDate = dateString => {
   )
 }
 
-export const NewsPost = ({ data, location }) => {
+export const NewsPost = ({ data, location, pageContext }) => {
   const post = data.wpPost
   const siteTitle = data.site.siteMetadata.title
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout {...{ location, pageContext }} title={siteTitle}>
       <article>
         <header>
           <h1

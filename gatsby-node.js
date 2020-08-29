@@ -69,6 +69,7 @@ exports.createPages = async ({ graphql, actions }) => {
       component: newsPostTemplate,
       context: {
         id: post.node.id,
+        menus,
       },
     })
   })

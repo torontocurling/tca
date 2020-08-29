@@ -59,6 +59,8 @@ exports.createPages = async ({ graphql, actions }) => {
     throw result.errors
   }
 
+  const menus = result.data.allWpMenu.edges
+
   const posts = result.data.allWpPost.edges
 
   posts.forEach((post, index) => {
@@ -79,6 +81,8 @@ exports.createPages = async ({ graphql, actions }) => {
       component: pageTemplate,
       context: {
         id: page.node.id,
+        uri: page.node.uri,
+        menus,
       },
     })
   })

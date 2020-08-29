@@ -1,6 +1,4 @@
 import React from 'react'
-import { Link } from 'gatsby'
-
 import Logo from '../assets/logo.svg'
 import { Footer } from './footer'
 import { bodyContainerStyle } from './layout.styles'
@@ -54,6 +52,7 @@ const Header = () => {
           <a href="/">
             <img
               src={Logo}
+              alt="TCA Logo"
               style={{
                 width: 200,
                 marginTop: logoVerticalOffset,

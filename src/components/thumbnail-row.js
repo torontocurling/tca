@@ -9,6 +9,7 @@ const Thumbnail = ({ uri, style }) => (
     {!!uri ? (
       <img
         src={uri}
+        alt=""
         style={{
           width: 'auto',
           height: 'auto',

@@ -23,7 +23,9 @@ const LinkColumn = ({ label, path, childItems }) => (
 )
 
 export const Footer = ({ menus }) => {
-  const footerMenu = menus.find(({ node: { name } }) => name === 'Footer')
+  const footerMenu = (menus || []).find(
+    ({ node: { name } }) => name === 'Footer'
+  )
   const menuItems = footerMenu?.node?.menuItems || { nodes: [] }
 
   return (

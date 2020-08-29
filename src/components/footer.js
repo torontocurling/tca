@@ -4,7 +4,7 @@ import { Link } from './link'
 import { Colors } from '../constants/colors'
 
 const LinkColumn = ({ label, path, childItems }) => (
-  <div style={{ minWidth: 160, marginRight: 20 }}>
+  <div style={{ minWidth: 160, marginRight: 20, marginBottom: 20 }}>
     <ul style={{ listStyle: 'none', margin: 0 }}>
       <li>
         <Link to={path} style={{ fontWeight: 'bold', color: Colors.grey }}>
@@ -30,13 +30,15 @@ export const Footer = ({ menus }) => {
     <div style={{ backgroundColor: '#555', color: '#eee' }}>
       <footer style={{ ...bodyContainerStyle }}>
         <nav>
-          <div style={{ display: 'flex', flexDirection: 'row' }}>
+          <div
+            style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}
+          >
             {menuItems.nodes.map(menuItem => (
               <LinkColumn key={menuItem.path} {...menuItem} />
             ))}
           </div>
         </nav>
-        <div style={{ marginTop: 50 }}>
+        <div style={{ marginTop: 30 }}>
           © {new Date().getFullYear()} Toronto Curling Association
         </div>
       </footer>

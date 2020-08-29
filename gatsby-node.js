@@ -18,7 +18,7 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
 
-        allWpPage(limit: 50) {
+        allWpPage {
           edges {
             node {
               id

@@ -8,7 +8,7 @@ const findMenu = ({ uri, menus }) => {
   const primaryMenu = menus.find(menu => menu.node.name === 'Primary')
   if (!primaryMenu) return
 
-  return primaryMenu.node.menuItems.nodes.find(({ url }) => url === uri)
+  return primaryMenu.node.menuItems.nodes.find(({ url }) => uri.includes(url))
 }
 
 export const PageBody = ({ data, location, pageContext }) => {
@@ -38,6 +38,9 @@ export const PageBody = ({ data, location, pageContext }) => {
             }}
           >
             <ul style={{ listStyle: 'none', marginLeft: 0 }}>
+              <li key={pageMenu.path} style={{ marginTop: 20 }}>
+                <Link to={pageMenu.path}>{pageMenu.label}</Link>
+              </li>
               {menuItems.map(menuItem => (
                 <li key={menuItem.path} style={{ marginTop: 20 }}>
                   <Link to={menuItem.path}>{menuItem.label}</Link>

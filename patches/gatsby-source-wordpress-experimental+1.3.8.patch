@@ -13,24 +13,10 @@ index ed029bf..08fac6b 100644
      helpers,
      pluginOptions
 diff --git a/node_modules/gatsby-source-wordpress-experimental/utils/fetch-graphql.js b/node_modules/gatsby-source-wordpress-experimental/utils/fetch-graphql.js
-index d1262fd..1b5b96d 100644
+index d1262fd..ec03a77 100644
 --- a/node_modules/gatsby-source-wordpress-experimental/utils/fetch-graphql.js
 +++ b/node_modules/gatsby-source-wordpress-experimental/utils/fetch-graphql.js
-@@ -23,7 +23,12 @@ var _getGatsbyApi = require("./get-gatsby-api");
- 
- var _url = _interopRequireDefault(require("url"));
- 
--const http = (0, _axiosRateLimit.default)(_axios.default.create(), {
-+const http = (0, _axiosRateLimit.default)(_axios.default.create({
-+  proxy: {
-+    host: 'localhost',
-+    port: 8888
-+  }
-+}), {
-   maxRPS: process.env.GATSBY_CONCURRENT_DOWNLOAD || 50
- });
- 
-@@ -377,9 +382,10 @@ const fetchGraphql = async ({
+@@ -377,9 +377,10 @@ const fetchGraphql = async ({
  
      const responsePath = response.request.path;
  

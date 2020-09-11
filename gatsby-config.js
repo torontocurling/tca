@@ -28,7 +28,7 @@ module.exports = {
         url: process.env.WPGRAPHQL_URL || 'https://torontocurling.com/graphql',
         schema: {
           typePrefix: 'Wp',
-          timeout: 60 * 1000 * 2, // 2 mins
+          timeout: 60 * 1000 * 5, // 5 mins
           perPage: 5, // required b/c our server has memory issues
           queryDepth: 5,
         },

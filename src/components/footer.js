@@ -35,9 +35,11 @@ export const Footer = ({ menus }) => {
           <div
             style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}
           >
-            {menuItems.nodes.map(menuItem => (
-              <LinkColumn key={menuItem.path} {...menuItem} />
-            ))}
+            {menuItems.nodes.map(menuItem =>
+              menuItem.childItems?.nodes?.length ? (
+                <LinkColumn key={menuItem.path} {...menuItem} />
+              ) : null
+            )}
           </div>
         </nav>
         <div style={{ marginTop: 30 }}>

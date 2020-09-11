@@ -53,11 +53,6 @@ jobs:
 
       - name: Gatsby build
         run: yarn build
-        env:
-          # incremental builds
-          # https://www.gatsbyjs.org/docs/page-build-optimizations-for-incremental-data-changes/
-          GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES: true
-          NODE_ENV: production
 
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@v1.5.0

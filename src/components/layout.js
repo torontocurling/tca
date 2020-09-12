@@ -4,7 +4,7 @@ import { Footer } from './footer'
 import { bodyContainerStyle } from './layout.styles'
 
 const menuItems = [
-  { text: 'Learn to Curl', uri: '/' },
+  { text: 'Learn to Curl', uri: '/learn-to-curl' },
   { text: 'Select a League', uri: '/' },
   { text: 'Find an Event', uri: '/' },
   { text: 'Find a Facility', uri: '/clubs' },

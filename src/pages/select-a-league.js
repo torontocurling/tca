@@ -5,9 +5,9 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import { HeroForm } from '../components/hero-form'
 import { EmptyState } from '../components/empty-state'
-import { renderLearnToCurlFilterForm } from './learn-to-curl.form'
+import { renderSelectALeagueFilterForm } from './select-a-league.form'
 
-const LearnToCurl = ({ data, location, pageContext }) => {
+const SelectALeague = ({ data, location, pageContext }) => {
   const siteTitle = data.site.siteMetadata.title
   const menus = data.allWpMenu.edges
 
@@ -16,20 +16,18 @@ const LearnToCurl = ({ data, location, pageContext }) => {
       {...{ location, pageContext: { ...pageContext, menus } }}
       title={siteTitle}
     >
-      <SEO title="Learn to Curl" />
+      <SEO title="Select a League" />
       <HeroForm
         onSubmit={() => {}}
-        text={
-          'Curling facilities in Toronto offer "Learn to Curl" sessions and beginner events throughout the season. We can help you find one close by.'
-        }
-        renderForm={renderLearnToCurlFilterForm}
+        text={'Find a weekly curling league that fits your schedule'}
+        renderForm={renderSelectALeagueFilterForm}
       />
-      <EmptyState listingType="learn to curl" />
+      <EmptyState listingType="league" />
     </Layout>
   )
 }
 
-export default LearnToCurl
+export default SelectALeague
 
 export const pageQuery = graphql`
   query {

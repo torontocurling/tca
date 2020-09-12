@@ -5,7 +5,7 @@ import { bodyContainerStyle } from './layout.styles'
 
 const menuItems = [
   { text: 'Learn to Curl', uri: '/learn-to-curl' },
-  { text: 'Select a League', uri: '/' },
+  { text: 'Select a League', uri: '/select-a-league' },
   { text: 'Find an Event', uri: '/' },
   { text: 'Find a Facility', uri: '/clubs' },
 ]

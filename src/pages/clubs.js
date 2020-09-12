@@ -9,9 +9,13 @@ import { ClubMap } from '../components/club-map'
 const ClubIndex = ({ data, location, pageContext }) => {
   const siteTitle = data.site.siteMetadata.title
   const clubs = data.allWpClub.edges
+  const menus = data.allWpMenu.edges
 
   return (
-    <Layout {...{ location, pageContext }} title={siteTitle}>
+    <Layout
+      {...{ location, pageContext: { ...pageContext, menus } }}
+      title={siteTitle}
+    >
       <SEO title="Curling Facilities" />
       <ClubMap clubs={clubs} />
       {clubs.map(({ node }) => (
@@ -46,6 +50,30 @@ export const pageQuery = graphql`
           featuredImage {
             node {
               mediaItemUrl
+            }
+          }
+        }
+      }
+    }
+    allWpMenu {
+      edges {
+        node {
+          name
+          locations
+          id
+          menuItems {
+            nodes {
+              label
+              id
+              path
+              childItems {
+                nodes {
+                  id
+                  label
+                  path
+                }
+              }
+              url
             }
           }
         }

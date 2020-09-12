@@ -25,6 +25,8 @@ const Thumbnail = ({ uri, style }) => (
           backgroundColor: '#bbb',
           backgroundImage: `url('${require('../assets/logo+transparent+grey.png')}')`,
           backgroundSize: 'cover',
+          borderTopLeftRadius: 3,
+          borderBottomLeftRadius: 3,
           opacity: 0.3,
         }}
       />

@@ -32,24 +32,24 @@ module.exports = {
           perPage: 5, // required b/c our server has memory issues
           queryDepth: 5,
         },
-        type: {
-          Page: {
-            limit:
-              process.env.NODE_ENV === `development`
-                ? // Lets just pull 50 posts in development to make it easy on ourselves.
-                  20
-                : // And all posts in production
-                  null,
-          },
-          Post: {
-            limit:
-              process.env.NODE_ENV === `development`
-                ? // Lets just pull 50 posts in development to make it easy on ourselves.
-                  20
-                : // And all posts in production
-                  null,
-          },
-        },
+        // type: {
+        //   Page: {
+        //     limit:
+        //       process.env.NODE_ENV === `development`
+        //         ? // Lets just pull 20 posts in development to make it easy on ourselves.
+        //           20
+        //         : // And all posts in production
+        //           null,
+        //   },
+        //   Post: {
+        //     limit:
+        //       process.env.NODE_ENV === `development`
+        //         ? // Lets just pull 20 posts in development to make it easy on ourselves.
+        //           20
+        //         : // And all posts in production
+        //           null,
+        //   },
+        // },
         debug: {
           graphql: {
             showQueryVarsOnError: true,
@@ -116,19 +116,19 @@ module.exports = {
         //trackingId: `ADD YOUR TRACKING ID HERE`,
       },
     },
-    `gatsby-plugin-feed`,
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `Toronto Curling Association`,
-        short_name: `TCA`,
-        start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
-      },
-    },
+    // `gatsby-plugin-feed`,
+    // {
+    //   resolve: `gatsby-plugin-manifest`,
+    //   options: {
+    //     name: `Toronto Curling Association`,
+    //     short_name: `TCA`,
+    //     start_url: `/`,
+    //     background_color: `#ffffff`,
+    //     theme_color: `#663399`,
+    //     display: `minimal-ui`,
+    //     icon: `content/assets/gatsby-icon.png`,
+    //   },
+    // },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-typography`,

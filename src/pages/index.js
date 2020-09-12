@@ -33,9 +33,13 @@ const PostItem = ({ title, content, slug }) => {
 const FrontPage = ({ data, location, pageContext }) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allWpPost.edges
+  const menus = data.allWpMenu.edges
 
   return (
-    <Layout {...{ location, pageContext }} title={siteTitle}>
+    <Layout
+      {...{ location, pageContext: { ...pageContext, menus } }}
+      title={siteTitle}
+    >
       <SEO title="All posts" />
       <CarouselHero label="Your GTA Curling Hub" style={{ marginBottom: 35 }} />
       {posts.map(({ node }) => (
@@ -61,6 +65,30 @@ export const pageQuery = graphql`
           slug
           title
           content
+        }
+      }
+    }
+    allWpMenu {
+      edges {
+        node {
+          name
+          locations
+          id
+          menuItems {
+            nodes {
+              label
+              id
+              path
+              childItems {
+                nodes {
+                  id
+                  label
+                  path
+                }
+              }
+              url
+            }
+          }
         }
       }
     }

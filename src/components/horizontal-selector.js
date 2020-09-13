@@ -22,11 +22,13 @@ const optionStyleIfActive = active =>
 const valueArray = value =>
   value?.length && typeof value === 'object' ? value : []
 
-export const HorizontalSelector = ({ value, onChange, options }) => {
+export const HorizontalSelector = ({ value, onChange, options, disabled }) => {
   const [selected, setSelected] = useState(valueArray(value))
 
   const onSelect = useCallback(
     selectedId => {
+      if (disabled) return
+
       if (selected.includes(selectedId)) {
         setSelected(selected.filter(value => value !== selectedId))
       } else {
@@ -34,7 +36,7 @@ export const HorizontalSelector = ({ value, onChange, options }) => {
       }
       onChange(selected)
     },
-    [selected, setSelected, onChange]
+    [selected, setSelected, onChange, disabled]
   )
 
   return (
@@ -46,6 +48,7 @@ export const HorizontalSelector = ({ value, onChange, options }) => {
         flexDirection: 'row',
         border: `1px solid ${Colors.darkBlue}`,
         overflow: 'hidden',
+        opacity: disabled ? 0.5 : 1,
       }}
     >
       {options.map((option, i) => (

@@ -22,7 +22,11 @@ export const renderSelectALeagueFilterForm = ({ handleSubmit }) => (
         <div style={{ flex: 1 }}>
           <Field name="weekday" disabled>
             {props => (
-              <HorizontalSelector {...props.input} options={weekdayOptions} />
+              <HorizontalSelector
+                {...props.input}
+                options={weekdayOptions}
+                disabled
+              />
             )}
           </Field>
         </div>

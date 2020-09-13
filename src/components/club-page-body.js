@@ -20,6 +20,7 @@ export const ClubPageBody = ({ data, location, pageContext }) => {
   const siteTitle = data.site.siteMetadata.title
   const pageMenu = findMenu({ uri, menus })
   const menuItems = pageMenu?.childItems?.nodes || []
+  const logo = club.featuredImage?.node?.mediaItemUrl
 
   return (
     <Layout {...{ location, pageContext }} title={siteTitle}>
@@ -29,29 +30,18 @@ export const ClubPageBody = ({ data, location, pageContext }) => {
           flexDirection: 'row',
         }}
       >
-        {menuItems.length > 0 && (
-          <nav
-            style={{
-              minWidth: 200,
-              marginRight: 20,
-              paddingRight: 20,
-              borderRightStyle: 'solid',
-              borderRightWidth: 2,
-              borderRightColor: Colors.grey,
-            }}
-          >
-            <ul style={{ listStyle: 'none', marginLeft: 0 }}>
-              <li key={pageMenu.path} style={{ marginTop: 20 }}>
-                <Link to={pageMenu.path}>{pageMenu.label}</Link>
-              </li>
-              {menuItems.map(menuItem => (
-                <li key={menuItem.path} style={{ marginTop: 20 }}>
-                  <Link to={menuItem.path}>{menuItem.label}</Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        )}
+        <nav
+          style={{
+            minWidth: 200,
+            marginRight: 20,
+            paddingRight: 20,
+            borderRightStyle: 'solid',
+            borderRightWidth: 2,
+            borderRightColor: Colors.grey,
+          }}
+        >
+          {logo && <img src={logo} style={{ maxWidth: 180 }} />}
+        </nav>
         <article style={{ flexGrow: 1 }}>
           <header>
             <h1

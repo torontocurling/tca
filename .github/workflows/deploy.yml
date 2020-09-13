@@ -11,16 +11,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Get yarn cache path
-        id: yarn-cache
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
       - name: Cache node modules
         uses: actions/cache@v1
         env:
-          cache-name: cache-node-modules
+          cache-name: cache-node-modules-v1
         with:
-          path: ${{ steps.yarn-cache.outputs.dir }}
+          path: node_modules/
           key: ${{ runner.os }}-yarn-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-${{ env.cache-name }}-
@@ -32,7 +28,7 @@ jobs:
           cache-name: cache-gatsby-build-v2
         with:
           path: .cache
-          key: ${{ runner.os }}-gatsby-build-${{ env.cache-name }}-${{ hashFiles('**/gatsby-node.js') }}
+          key: ${{ runner.os }}-gatsby-build-${{ env.cache-name }}-${{ hashFiles('**/gatsby-node.js', '**/yarn.lock', '**/gatsby-config.js') }}
           restore-keys: |
             ${{ runner.os }}-gatsby-build-${{ env.cache-name }}-
             ${{ runner.os }}-gatsby-build-
@@ -43,7 +39,7 @@ jobs:
           cache-name: cache-gatsby-public-v2
         with:
           path: public/
-          key: ${{ runner.os }}-gatsby-public-${{ env.cache-name }}-${{ hashFiles('**/gatsby-node.js') }}
+          key: ${{ runner.os }}-gatsby-public-${{ env.cache-name }}-${{ hashFiles('**/gatsby-node.js', '**/yarn.lock', '**/gatsby-config.js') }}
           restore-keys: |
             ${{ runner.os }}-gatsby-public-${{ env.cache-name }}-
             ${{ runner.os }}-gatsby-public-

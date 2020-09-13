@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
-import { CarouselHero } from '../components/carousel-hero'
 import { PostList } from '../page-support/post-list'
 
 const MoreNews = ({ data, location, pageContext }) => {

@@ -5,7 +5,7 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import { HeroForm } from '../components/hero-form'
 import { EmptyState } from '../components/empty-state'
-import { renderLearnToCurlFilterForm } from './learn-to-curl.form'
+import { renderLearnToCurlFilterForm } from '../page-support/learn-to-curl.form'
 
 const LearnToCurl = ({ data, location, pageContext }) => {
   const siteTitle = data.site.siteMetadata.title

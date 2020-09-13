@@ -40,7 +40,7 @@ const FrontPage = ({ data, location, pageContext }) => {
       {...{ location, pageContext: { ...pageContext, menus } }}
       title={siteTitle}
     >
-      <SEO title="All posts" />
+      <SEO title="TCA Home" />
       <CarouselHero label="Your GTA Curling Hub" style={{ marginBottom: 35 }} />
       {posts.map(({ node }) => (
         <PostItem {...node} />

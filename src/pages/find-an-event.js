@@ -5,9 +5,9 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import { HeroForm } from '../components/hero-form'
 import { EmptyState } from '../components/empty-state'
-import { renderSelectALeagueFilterForm } from '../page-support/select-a-league.form'
+import { renderFindAnEventFilterForm } from '../page-support/find-an-event.form'
 
-const SelectALeague = ({ data, location, pageContext }) => {
+const FindAnEvent = ({ data, location, pageContext }) => {
   const siteTitle = data.site.siteMetadata.title
   const menus = data.allWpMenu.edges
 
@@ -16,18 +16,20 @@ const SelectALeague = ({ data, location, pageContext }) => {
       {...{ location, pageContext: { ...pageContext, menus } }}
       title={siteTitle}
     >
-      <SEO title="Select a League" />
+      <SEO title="Find An Event" />
       <HeroForm
         onSubmit={() => {}}
-        text={'Find a weekly curling league that fits your schedule'}
-        renderForm={renderSelectALeagueFilterForm}
+        text={
+          'Find a tournament, bonspiel, or other event to participate in this season'
+        }
+        renderForm={renderFindAnEventFilterForm}
       />
-      <EmptyState listingType="league" />
+      <EmptyState listingType="event" />
     </Layout>
   )
 }
 
-export default SelectALeague
+export default FindAnEvent
 
 export const pageQuery = graphql`
   query {

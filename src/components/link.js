@@ -1,4 +1,3 @@
-import React from 'react'
 import * as Gatsby from 'gatsby'
 import styled from 'styled-components'
 import { Colors } from '../constants/colors'

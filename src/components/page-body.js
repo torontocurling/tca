@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout from './layout'
-import { Link } from './link'
+import { PageNavLayout } from './page-nav-layout'
 import { Colors } from '../constants/colors'
 import { rhythm } from '../utils/typography'
 
@@ -20,49 +20,19 @@ export const PageBody = ({ data, location, pageContext }) => {
 
   return (
     <Layout {...{ location, pageContext }} title={siteTitle}>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-        }}
-      >
-        {menuItems.length > 0 && (
-          <nav
+      <PageNavLayout {...{ menuItems, pageMenu }}>
+        <header>
+          <h1
             style={{
-              minWidth: 200,
-              marginRight: 20,
-              paddingRight: 20,
-              borderRightStyle: 'solid',
-              borderRightWidth: 2,
-              borderRightColor: Colors.grey,
+              marginTop: rhythm(1),
+              color: Colors.blue,
             }}
           >
-            <ul style={{ listStyle: 'none', marginLeft: 0 }}>
-              <li key={pageMenu.path} style={{ marginTop: 20 }}>
-                <Link to={pageMenu.path}>{pageMenu.label}</Link>
-              </li>
-              {menuItems.map(menuItem => (
-                <li key={menuItem.path} style={{ marginTop: 20 }}>
-                  <Link to={menuItem.path}>{menuItem.label}</Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        )}
-        <article style={{ flexGrow: 1 }}>
-          <header>
-            <h1
-              style={{
-                marginTop: rhythm(1),
-                color: Colors.blue,
-              }}
-            >
-              {post.title}
-            </h1>
-          </header>
-          <section dangerouslySetInnerHTML={{ __html: post.content }} />
-        </article>
-      </div>
+            {post.title}
+          </h1>
+        </header>
+        <section dangerouslySetInnerHTML={{ __html: post.content }} />
+      </PageNavLayout>
     </Layout>
   )
 }

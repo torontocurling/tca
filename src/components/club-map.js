@@ -193,7 +193,7 @@ export const ClubMap = ({ clubs, initialZoom, onMarkerClick }) => {
       clubs: clubs.map(club => ('node' in club ? club.node : club)),
     })
     map.current.markerClick(onMarkerClick)
-  }, [map, clubs, initialZoom])
+  }, [map, clubs, initialZoom, onMarkerClick])
 
   useEffect(() => {
     if (mapInitialized) {

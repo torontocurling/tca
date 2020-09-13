@@ -28,7 +28,7 @@ const HeroContainer = styled('div')`
   border-radius: 4px;
   margin-bottom: 20px;
 
-  @media (max-width: 500px) {
+  @media (max-width: 768px) {
     min-height: 200px;
   }
 `

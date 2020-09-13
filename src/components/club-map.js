@@ -76,7 +76,7 @@ const TCAmap = function () {
 
   // clubs - marker: [{lat: 0, lng: 0, title:'My Marker'}]
 
-  function initialize(clubs) {
+  function initialize({ initialZoom, clubs }) {
     if (hasMap || !clubs) return false
 
     if (clubs.lat) {
@@ -114,12 +114,19 @@ const TCAmap = function () {
       }
     }
 
-    if (!mapOptions.zoom) {
+    if (!mapOptions.zoom && !initialZoom) {
       const sw = new google.maps.LatLng(swLat, swLng),
         ne = new google.maps.LatLng(neLat, neLng),
         bounds = new google.maps.LatLngBounds(sw, ne)
 
       map.fitBounds(bounds)
+    }
+
+    if (initialZoom) {
+      map.setZoom(initialZoom)
+      if (typeof clubs[0]?.lat === 'number') {
+        map.setCenter({ lat: clubs[0].lat, lng: clubs[0].lng })
+      }
     }
 
     hasMap = true
@@ -177,13 +184,16 @@ const mapZoomButtonStyle = {
   userSelect: 'none',
 }
 
-export const ClubMap = ({ clubs }) => {
+export const ClubMap = ({ clubs, initialZoom }) => {
   const map = useRef()
 
   const initMap = useCallback(() => {
     map.current = TCAmap()
-    map.current.init(clubs.map(club => ('node' in club ? club.node : club)))
-  }, [map, clubs])
+    map.current.init({
+      initialZoom,
+      clubs: clubs.map(club => ('node' in club ? club.node : club)),
+    })
+  }, [map, clubs, initialZoom])
 
   useEffect(() => {
     if (mapInitialized) {

@@ -1,6 +1,7 @@
 import React from 'react'
 import Layout from './layout'
 import { Link } from './link'
+import { ClubMap } from './club-map'
 import { Colors } from '../constants/colors'
 import { rhythm } from '../utils/typography'
 
@@ -84,6 +85,7 @@ export const ClubPageBody = ({ data, location, pageContext }) => {
               </p>
             )}
           </section>
+          <ClubMap clubs={[club]} initialZoom={12} />
         </article>
       </div>
     </Layout>

@@ -21,6 +21,7 @@ const ClubIndex = ({ data, location, pageContext }) => {
       {clubs.map(({ node }) => (
         <ThumbnailRow
           title={node.title}
+          link={node.uri}
           description={node.address}
           imageUri={node.featuredImage.node.mediaItemUrl}
         />
@@ -44,6 +45,7 @@ export const pageQuery = graphql`
           title
           lat
           lng
+          uri
           contact
           phone
           address

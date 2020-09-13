@@ -4,33 +4,36 @@ import { Link } from 'gatsby'
 const maxImageWidth = 180
 const maxImageHeight = 120
 
+const styleForPlaceholder = {
+  backgroundColor: '#bbb',
+  backgroundSize: 'cover',
+  opacity: 0.3,
+}
+
+const styleForFeatureImage = {
+  backgroundSize: 'contain',
+  backgroundRepeat: 'no-repeat',
+  backgroundPosition: 'center',
+}
+
 const Thumbnail = ({ uri, style }) => (
   <div style={style}>
-    {!!uri ? (
-      <img
-        src={uri}
-        alt=""
-        style={{
-          width: 'auto',
-          height: 'auto',
-          maxWidth: maxImageWidth,
-          maxHeight: maxImageHeight,
-        }}
-      />
-    ) : (
+    {
       <div
         style={{
           width: maxImageWidth,
           height: maxImageHeight,
-          backgroundColor: '#bbb',
-          backgroundImage: `url('${require('../assets/logo+transparent+grey.png')}')`,
-          backgroundSize: 'cover',
+
+          backgroundImage: uri
+            ? `url('${uri}')`
+            : `url('${require('../assets/logo+transparent+grey.png')}')`,
+
           borderTopLeftRadius: 3,
           borderBottomLeftRadius: 3,
-          opacity: 0.3,
+          ...(uri ? styleForFeatureImage : styleForPlaceholder),
         }}
       />
-    )}
+    }
   </div>
 )
 

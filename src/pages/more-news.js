@@ -5,9 +5,8 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import { CarouselHero } from '../components/carousel-hero'
 import { PostList } from '../page-support/post-list'
-import { Button } from '../components/button'
 
-const FrontPage = ({ data, location, pageContext }) => {
+const MoreNews = ({ data, location, pageContext }) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allWpPost.edges
   const menus = data.allWpMenu.edges
@@ -17,17 +16,13 @@ const FrontPage = ({ data, location, pageContext }) => {
       {...{ location, pageContext: { ...pageContext, menus } }}
       title={siteTitle}
     >
-      <SEO title="TCA Home" />
-      <CarouselHero label="Your GTA Curling Hub" style={{ marginBottom: 35 }} />
+      <SEO title="More News" />
       <PostList posts={posts} />
-      <div style={{ textAlign: 'center', padding: 20 }}>
-        <Button to="more-news">More News</Button>
-      </div>
     </Layout>
   )
 }
 
-export default FrontPage
+export default MoreNews
 
 export const pageQuery = graphql`
   query {
@@ -37,7 +32,7 @@ export const pageQuery = graphql`
       }
     }
     allWpPost(
-      limit: 3
+      limit: 10
       sort: { fields: [date], order: DESC }
       filter: { status: { eq: "publish" }, date: { ne: null } }
     ) {

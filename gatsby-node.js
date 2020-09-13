@@ -6,10 +6,11 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const newsPostTemplate = path.resolve(`./src/templates/news-post.js`)
   const pageTemplate = path.resolve(`./src/templates/page.js`)
+  const clubPageTemplate = path.resolve(`./src/templates/club-page.js`)
   const result = await graphql(
     `
       {
-        allWpPost(limit: 3) {
+        allWpPost(limit: 10) {
           edges {
             node {
               id
@@ -19,6 +20,15 @@ exports.createPages = async ({ graphql, actions }) => {
         }
 
         allWpPage {
+          edges {
+            node {
+              id
+              uri
+            }
+          }
+        }
+
+        allWpClub {
           edges {
             node {
               id
@@ -80,6 +90,20 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: page.node.uri,
       component: pageTemplate,
+      context: {
+        id: page.node.id,
+        uri: page.node.uri,
+        menus,
+      },
+    })
+  })
+
+  const clubs = result.data.allWpClub.edges
+
+  clubs.forEach((page, index) => {
+    createPage({
+      path: page.node.uri,
+      component: clubPageTemplate,
       context: {
         id: page.node.id,
         uri: page.node.uri,

@@ -182,7 +182,7 @@ export const ClubMap = ({ clubs }) => {
 
   const initMap = useCallback(() => {
     map.current = TCAmap()
-    map.current.init(clubs.map(club => club.node))
+    map.current.init(clubs.map(club => ('node' in club ? club.node : club)))
   }, [map, clubs])
 
   useEffect(() => {

@@ -31,7 +31,6 @@ jobs:
           key: ${{ runner.os }}-gatsby-build-${{ env.cache-name }}-${{ hashFiles('**/gatsby-node.js', '**/yarn.lock', '**/gatsby-config.js') }}
           restore-keys: |
             ${{ runner.os }}-gatsby-build-${{ env.cache-name }}-
-            ${{ runner.os }}-gatsby-build-
 
       - name: Cache gatsby public
         uses: actions/cache@v1
@@ -42,7 +41,6 @@ jobs:
           key: ${{ runner.os }}-gatsby-public-${{ env.cache-name }}-${{ hashFiles('**/gatsby-node.js', '**/yarn.lock', '**/gatsby-config.js') }}
           restore-keys: |
             ${{ runner.os }}-gatsby-public-${{ env.cache-name }}-
-            ${{ runner.os }}-gatsby-public-
 
       - name: Install node_modules
         run: yarn install --pure-lockfile

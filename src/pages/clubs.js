@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, navigate } from 'gatsby'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
@@ -17,7 +17,7 @@ const ClubIndex = ({ data, location, pageContext }) => {
       title={siteTitle}
     >
       <SEO title="Curling Facilities" />
-      <ClubMap clubs={clubs} />
+      <ClubMap clubs={clubs} onMarkerClick={marker => navigate(marker.uri)} />
       {clubs.map(({ node }) => (
         <ThumbnailRow
           title={node.title}

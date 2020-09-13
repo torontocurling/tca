@@ -92,7 +92,6 @@ const TCAmap = function () {
       const marker = clubs[i]
       marker.position = new google.maps.LatLng(marker.lat, marker.lng)
       marker.map = map
-      marker.animation = google.maps.Animation.DROP
       markers.push(new google.maps.Marker(marker))
 
       if (!swLat) {
@@ -184,7 +183,7 @@ const mapZoomButtonStyle = {
   userSelect: 'none',
 }
 
-export const ClubMap = ({ clubs, initialZoom }) => {
+export const ClubMap = ({ clubs, initialZoom, onMarkerClick }) => {
   const map = useRef()
 
   const initMap = useCallback(() => {
@@ -193,6 +192,7 @@ export const ClubMap = ({ clubs, initialZoom }) => {
       initialZoom,
       clubs: clubs.map(club => ('node' in club ? club.node : club)),
     })
+    map.current.markerClick(onMarkerClick)
   }, [map, clubs, initialZoom])
 
   useEffect(() => {

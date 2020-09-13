@@ -29,7 +29,7 @@ jobs:
       - name: Cache gatsby build
         uses: actions/cache@v1
         env:
-          cache-name: cache-gatsby-build-v1
+          cache-name: cache-gatsby-build-v2
         with:
           path: .cache
           key: ${{ runner.os }}-gatsby-build-${{ env.cache-name }}-${{ hashFiles('**/gatsby-node.js') }}
@@ -40,7 +40,7 @@ jobs:
       - name: Cache gatsby public
         uses: actions/cache@v1
         env:
-          cache-name: cache-gatsby-public-v1
+          cache-name: cache-gatsby-public-v2
         with:
           path: public/
           key: ${{ runner.os }}-gatsby-public-${{ env.cache-name }}-${{ hashFiles('**/gatsby-node.js') }}

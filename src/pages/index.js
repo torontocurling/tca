@@ -1,8 +1,9 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, navigate } from 'gatsby'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
+import { BannerButton } from '../components/banner-button'
 import { CarouselHero } from '../components/carousel-hero'
 import { PostList } from '../page-support/post-list'
 import { Button } from '../components/button'
@@ -18,6 +19,12 @@ const FrontPage = ({ data, location, pageContext }) => {
       title={siteTitle}
     >
       <SEO title="TCA Home" />
+      <BannerButton
+        onClick={() => navigate('/covid-19')}
+        style={{ marginBottom: 20 }}
+      >
+        COVID-19: Read the latest on returning to curling
+      </BannerButton>
       <CarouselHero label="Your GTA Curling Hub" style={{ marginBottom: 35 }} />
       <PostList posts={posts} />
       <div style={{ textAlign: 'center', padding: 20 }}>

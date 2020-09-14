@@ -10,7 +10,7 @@ const menuItems = [
   { text: 'Learn to Curl', uri: '/learn-to-curl' },
   { text: 'Select a League', uri: '/select-a-league' },
   { text: 'Find an Event', uri: '/find-an-event' },
-  { text: 'Find a Facility', uri: '/clubs' },
+  { text: 'Locate a Facility', uri: '/clubs' },
 ]
 
 const MenuContainer = styled('nav')`
@@ -105,7 +105,7 @@ const Header = () => {
               src={Logo}
               alt="TCA Logo"
               style={{
-                width: 200,
+                width: 250,
                 marginTop: logoVerticalOffset,
                 marginBottom: logoVerticalOffset,
                 marginLeft: -10,

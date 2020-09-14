@@ -19,9 +19,7 @@ const FindAnEvent = ({ data, location, pageContext }) => {
       <SEO title="Find An Event" />
       <HeroForm
         onSubmit={() => {}}
-        text={
-          'Find a tournament, bonspiel, or other event to participate in this season'
-        }
+        text={'Find an event to participate in this season'}
         renderForm={renderFindAnEventFilterForm}
       />
       <EmptyState listingType="event" />

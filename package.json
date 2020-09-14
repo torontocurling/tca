@@ -14,6 +14,7 @@
     "gatsby-plugin-offline": "^3.2.13",
     "gatsby-plugin-react-helmet": "^3.3.6",
     "gatsby-plugin-sharp": "^2.6.14",
+    "gatsby-plugin-styled-components": "^3.3.10",
     "gatsby-plugin-typography": "^2.5.6",
     "gatsby-remark-copy-linked-files": "^2.3.7",
     "gatsby-remark-images": "^3.3.14",
@@ -49,7 +50,7 @@
   "license": "0BSD",
   "main": "n/a",
   "scripts": {
-    "build": "NODE_ENV=production gatsby build --log-pages",
+    "build": "NODE_ENV=production GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",

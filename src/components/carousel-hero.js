@@ -2,11 +2,15 @@ import styled from 'styled-components'
 import React, { useState } from 'react'
 import { useTimeout } from '../utils/use-timeout'
 
+const outdoor = require('../assets/outdoor.jpg')
+
 const images = [
-  require('../assets/women.jpg'),
-  require('../assets/rink.jpg'),
-  require('../assets/men.jpg'),
+  outdoor,
+  require('../assets/lessons.jpeg'),
+  require('../assets/goldlinepeople.jpg'),
 ]
+
+const outdoorIndex = images.indexOf(outdoor)
 
 const HeroImage = styled('div')`
   position: absolute;
@@ -16,6 +20,7 @@ const HeroImage = styled('div')`
   left: 0;
   background-image: ${props => `url('${props.src}')`};
   background-size: cover;
+  background-position: center;
   opacity: ${props => (props.visible ? 1 : 0.5)};
   visibility: ${props => (props.visible ? 'visible' : 'hidden')};
   transition: visibility 0s, opacity 0.5s linear;
@@ -33,7 +38,14 @@ const HeroContainer = styled('div')`
   }
 `
 
-export const CarouselHero = ({ label, style }) => {
+const Caption = styled('div')`
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: white;
+`
+
+export const CarouselHero = ({ style }) => {
   const [currentIndex, setIndex] = useState(0)
 
   useTimeout(() => {
@@ -50,19 +62,9 @@ export const CarouselHero = ({ label, style }) => {
         {images.map((imgName, i) => (
           <HeroImage key={imgName} src={imgName} visible={i === currentIndex} />
         ))}
-        <h2
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            margin: 0,
-            padding: 20,
-            backgroundColor: 'rgba(255,255,255,0.6)',
-          }}
-        >
-          {label}
-        </h2>
+        {currentIndex === outdoorIndex && (
+          <Caption>Photo: Rock Solid Productions Inc.</Caption>
+        )}
       </HeroContainer>
     </div>
   )

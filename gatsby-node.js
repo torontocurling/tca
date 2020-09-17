@@ -6,6 +6,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const newsPostTemplate = path.resolve(`./src/templates/news-post.js`)
   const pageTemplate = path.resolve(`./src/templates/page.js`)
+  const eventPageTemplate = path.resolve(`./src/templates/event.js`)
   const clubPageTemplate = path.resolve(`./src/templates/club-page.js`)
   const result = await graphql(
     `
@@ -126,7 +127,7 @@ exports.createPages = async ({ graphql, actions }) => {
   events.forEach((page, index) => {
     createPage({
       path: page.node.uri,
-      component: pageTemplate,
+      component: eventPageTemplate,
       context: {
         id: page.node.id,
         uri: page.node.uri,

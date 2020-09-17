@@ -60,5 +60,26 @@ export const pageQuery = graphql`
         }
       }
     }
+
+    allWpEvent {
+      edges {
+        node {
+          id
+          uri
+          title
+          contact
+          content
+          emaill
+          start
+          end
+          eventcat
+          eventtype
+          eventformat
+          fee
+          flyer
+          phone
+        }
+      }
+    }
   }
 `

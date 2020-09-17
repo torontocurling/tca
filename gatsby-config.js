@@ -36,16 +36,24 @@ module.exports = {
         //   Page: {
         //     limit:
         //       process.env.NODE_ENV === `development`
-        //         ? // Lets just pull 20 posts in development to make it easy on ourselves.
-        //           20
+        //         ? // Lets just pull 40 posts in development to make it easy on ourselves.
+        //           40
         //         : // And all posts in production
         //           null,
         //   },
         //   Post: {
         //     limit:
         //       process.env.NODE_ENV === `development`
-        //         ? // Lets just pull 20 posts in development to make it easy on ourselves.
-        //           20
+        //         ? // Lets just pull 40 posts in development to make it easy on ourselves.
+        //           40
+        //         : // And all posts in production
+        //           null,
+        //   },
+        //   Event: {
+        //     limit:
+        //       process.env.NODE_ENV === `development`
+        //         ? // Lets just pull 40 posts in development to make it easy on ourselves.
+        //           40
         //         : // And all posts in production
         //           null,
         //   },

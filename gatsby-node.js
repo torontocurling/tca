@@ -37,6 +37,15 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
 
+        allWpEvent {
+          edges {
+            node {
+              id
+              uri
+            }
+          }
+        }
+
         allWpMenu {
           edges {
             node {
@@ -104,6 +113,20 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: page.node.uri,
       component: clubPageTemplate,
+      context: {
+        id: page.node.id,
+        uri: page.node.uri,
+        menus,
+      },
+    })
+  })
+
+  const events = result.data.allWpEvent.edges
+
+  events.forEach((page, index) => {
+    createPage({
+      path: page.node.uri,
+      component: pageTemplate,
       context: {
         id: page.node.id,
         uri: page.node.uri,

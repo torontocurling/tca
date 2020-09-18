@@ -61,8 +61,9 @@ export const EventDateSummary = ({
   secondDay,
   secondDate,
   info,
+  style,
 }) => (
-  <Container>
+  <Container style={style}>
     <CrossBar>{month}</CrossBar>
     <DateRange>
       <Date>

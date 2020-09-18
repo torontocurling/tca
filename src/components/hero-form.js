@@ -9,6 +9,7 @@ export const HeroForm = props => {
         backgroundColor: Colors.blue,
         padding: '30px 40px 10px 40px',
         borderRadius: 5,
+        ...props.style,
       }}
     >
       <h3 style={{ color: 'white', lineHeight: 1.3, textAlign: 'center' }}>

@@ -68,7 +68,7 @@ export const pageQuery = graphql`
           uri
           title
           contact
-          content
+          excerpt
           emaill
           start
           end

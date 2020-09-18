@@ -11,7 +11,7 @@ const findMenu = ({ uri, menus }) => {
   return primaryMenu.node.menuItems.nodes.find(({ url }) => uri.includes(url))
 }
 
-export const PageBody = ({ data, location, pageContext }) => {
+export const EventPageBody = ({ data, location, pageContext }) => {
   const { uri, menus } = pageContext
   const post = data.wpEvent
   const siteTitle = data.site.siteMetadata.title

@@ -9,12 +9,20 @@ export default {
 
 const Template = args => <EventDateSummary {...args} />
 
-export const DefaultEventDateSummary = Template.bind({})
-DefaultEventDateSummary.args = {
+export const DateRangeSummary = Template.bind({})
+DateRangeSummary.args = {
   month: 'January',
   firstDate: '12',
   firstDay: 'Fri',
   secondDate: '15',
   secondDay: 'Sun',
+  info: 'Mixed',
+}
+
+export const SingleDateSummary = Template.bind({})
+SingleDateSummary.args = {
+  month: 'January',
+  firstDate: '12',
+  firstDay: 'Fri',
   info: 'Mixed',
 }

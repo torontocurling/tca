@@ -69,11 +69,15 @@ export const EventDateSummary = ({
         <span>{firstDate}</span>
         <DayName>{firstDay}</DayName>
       </Date>
-      <Chevron />
-      <Date>
-        <span>{secondDate}</span>
-        <DayName>{secondDay}</DayName>
-      </Date>
+      {secondDate && secondDate !== firstDate && (
+        <>
+          <Chevron />
+          <Date>
+            <span>{secondDate}</span>
+            <DayName>{secondDay}</DayName>
+          </Date>
+        </>
+      )}
     </DateRange>
     <CrossBar>{info}</CrossBar>
   </Container>

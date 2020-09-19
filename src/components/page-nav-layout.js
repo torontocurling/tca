@@ -27,16 +27,24 @@ const Menu = styled('nav')`
   }
 `
 
-export const PageNavLayout = ({ logo, pageMenu, menuItems, children }) => (
+export const PageNavLayout = ({
+  logo,
+  pageMenu,
+  menuItems,
+  children,
+  hideParent,
+}) => (
   <Container>
     {(menuItems.length > 0 || logo) && (
       <Menu>
         {logo && <img src={logo} style={{ maxWidth: 180 }} />}
         {menuItems.length > 0 && (
           <ul style={{ listStyle: 'none', marginLeft: 0 }}>
-            <li key={pageMenu.path} style={{ marginTop: 20 }}>
-              <Link to={pageMenu.path}>{pageMenu.label}</Link>
-            </li>
+            {hideParent !== true && (
+              <li key={pageMenu.path} style={{ marginTop: 20 }}>
+                <Link to={pageMenu.path}>{pageMenu.label}</Link>
+              </li>
+            )}
             {menuItems.map(menuItem => (
               <li key={menuItem.path} style={{ marginTop: 20 }}>
                 <Link to={menuItem.path}>{menuItem.label}</Link>

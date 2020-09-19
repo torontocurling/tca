@@ -14,8 +14,16 @@ export const pageQuery = graphql`
     }
     wpEvent(id: { eq: $id }) {
       id
+      databaseId
       content
       title
+      contact
+      emaill
+      start
+      end
+      fee
+      flyer
+      phone
     }
   }
 `

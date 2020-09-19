@@ -8,4 +8,5 @@ export const BannerButton = styled('div')`
   border-radius: 4px;
   border: 1px solid ${Colors.darkBlue};
   cursor: pointer;
+  font-size: 18px;
 `

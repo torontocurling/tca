@@ -1,5 +1,7 @@
 import React from 'react'
+import styled from 'styled-components'
 import { graphql, navigate } from 'gatsby'
+import { GrCircleInformation } from 'react-icons/gr'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
@@ -8,6 +10,17 @@ import { CarouselHero } from '../components/carousel-hero'
 import { PostList } from '../page-support/post-list'
 import { Button } from '../components/button'
 import { SocialSubscribe } from '../components/social-subscribe'
+
+const InfoIcon = styled('div')`
+  display: inline-block;
+  position: relative;
+  top: 2px;
+  margin-right: 10px;
+
+  path {
+    stroke: white;
+  }
+`
 
 const FrontPage = ({ data, location, pageContext }) => {
   const siteTitle = data.site.siteMetadata.title
@@ -22,8 +35,11 @@ const FrontPage = ({ data, location, pageContext }) => {
       <SEO title="TCA Home" />
       <BannerButton
         onClick={() => navigate('/covid-19')}
-        style={{ marginBottom: 20 }}
+        style={{ marginBottom: 20, color: 'white' }}
       >
+        <InfoIcon>
+          <GrCircleInformation />
+        </InfoIcon>
         COVID-19: Read the latest on returning to curling
       </BannerButton>
       <CarouselHero label="Your GTA Curling Hub" style={{ marginBottom: 35 }} />

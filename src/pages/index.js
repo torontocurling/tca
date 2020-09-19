@@ -7,6 +7,7 @@ import { BannerButton } from '../components/banner-button'
 import { CarouselHero } from '../components/carousel-hero'
 import { PostList } from '../page-support/post-list'
 import { Button } from '../components/button'
+import { SocialSubscribe } from '../components/social-subscribe'
 
 const FrontPage = ({ data, location, pageContext }) => {
   const siteTitle = data.site.siteMetadata.title
@@ -30,6 +31,7 @@ const FrontPage = ({ data, location, pageContext }) => {
       <div style={{ textAlign: 'center', padding: 20 }}>
         <Button to="more-news">More News</Button>
       </div>
+      <SocialSubscribe />
     </Layout>
   )
 }

@@ -32,6 +32,10 @@ const EmailInput = styled(Field)`
 const SubscribeButton = styled('button')`
   padding: 5px 12px;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    margin-top: 15px;
+  }
 `
 
 const EmailForm = ({ handleSubmit, loading }) => (

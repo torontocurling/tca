@@ -12,7 +12,7 @@ const today = Date.now()
 
 const filterSortEvents = eventNodes =>
   eventNodes
-    .filter(({ node }) => node.start * 1000 > today)
+    .filter(({ node }) => !node.start || node.start * 1000 > today)
     .sort((a, b) => a.node.start - b.node.start)
 
 const FindAnEvent = ({ data, location, pageContext }) => {

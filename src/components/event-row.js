@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react'
 import styled from 'styled-components'
-import { format } from 'date-fns'
+import { add, format } from 'date-fns'
 import { Link } from 'gatsby'
 import { EventDateSummary } from './event-date-summary'
 import { Colors } from '../constants'
@@ -19,15 +19,28 @@ const RightSide = styled('div')`
   padding-top: 15px;
 `
 
-const parseEvent = ({ start, end, eventcat, eventtype }) => {
-  const startDate = new Date(start * 1000)
-  const endDate = new Date(end * 1000)
+const estOffset = { hours: 5 }
 
-  const month = `${format(startDate, 'MMMM')} ${format(startDate, 'yyyy')}`
-  const firstDate = format(startDate, 'd')
-  const firstDay = format(startDate, 'E')
-  const secondDate = format(endDate, 'd')
-  const secondDay = format(endDate, 'E')
+const parseEvent = ({ start, end, eventcat, eventtype }) => {
+  const startDate = start ? add(new Date(start * 1000), estOffset) : null
+  const endDate = end ? add(new Date(end * 1000), estOffset) : null
+
+  let month
+  let firstDate
+  let firstDay
+  let secondDate
+  let secondDay
+
+  if (start) {
+    month = `${format(startDate, 'MMMM')} ${format(startDate, 'yyyy')}`
+    firstDate = format(startDate, 'd')
+    firstDay = format(startDate, 'E')
+  }
+
+  if (end) {
+    secondDate = format(endDate, 'd')
+    secondDay = format(endDate, 'E')
+  }
 
   const info = eventcat || (eventtype === 'tca' ? 'TCA' : 'Club')
 

@@ -26,3 +26,8 @@ SingleDateSummary.args = {
   firstDay: 'Fri',
   info: 'Mixed',
 }
+
+export const NoDate = Template.bind({})
+NoDate.args = {
+  info: 'Mixed',
+}

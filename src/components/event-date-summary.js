@@ -49,6 +49,11 @@ const Chevron = styled('span')`
   }
 `
 
+const PendingDate = styled(Date)`
+  font-size: 40px;
+  color: #ccc;
+`
+
 const DayName = styled('span')`
   font-size: 12px;
   text-transform: 'uppercase';
@@ -64,19 +69,25 @@ export const EventDateSummary = ({
   style,
 }) => (
   <Container style={style}>
-    <CrossBar>{month}</CrossBar>
+    <CrossBar>{!firstDate && !secondDate ? 'Planned' : month}</CrossBar>
     <DateRange>
-      <Date>
-        <span>{firstDate}</span>
-        <DayName>{firstDay}</DayName>
-      </Date>
-      {secondDate && secondDate !== firstDate && (
+      {!firstDate && !secondDate ? (
+        <PendingDate>TBD</PendingDate>
+      ) : (
         <>
-          <Chevron />
           <Date>
-            <span>{secondDate}</span>
-            <DayName>{secondDay}</DayName>
+            <span>{firstDate}</span>
+            <DayName>{firstDay}</DayName>
           </Date>
+          {secondDate && secondDate !== firstDate && (
+            <>
+              <Chevron />
+              <Date>
+                <span>{secondDate}</span>
+                <DayName>{secondDay}</DayName>
+              </Date>
+            </>
+          )}
         </>
       )}
     </DateRange>

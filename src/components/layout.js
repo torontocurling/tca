@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { GrMenu, GrClose } from 'react-icons/gr'
 import Logo from '../assets/logo.svg'
 import { Footer } from './footer'
 import { bodyContainerStyle } from './layout.styles'
@@ -36,7 +37,7 @@ const MenuContainer = styled('nav')`
 
 const MobileMenuLink = styled('div')`
   display: none;
-  font-size: 20px;
+  font-size: 40px;
   font-weight: 700;
   text-align: right;
   flex: 1;
@@ -116,7 +117,7 @@ const Header = () => {
         </div>
         <Menu mobileNavShown={mobileNavShown} />
         <MobileMenuLink onClick={() => showMobileNav(!mobileNavShown)}>
-          {mobileNavShown ? 'Close' : 'Menu'}
+          {mobileNavShown ? <GrClose /> : <GrMenu />}
         </MobileMenuLink>
       </header>
       <div

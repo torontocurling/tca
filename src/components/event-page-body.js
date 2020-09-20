@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Layout from './layout'
 import { PageNavLayout } from './page-nav-layout'
+import { EventSidebarSummary } from './event-sidebar-summary'
 import { Colors } from '../constants/colors'
 import { rhythm } from '../utils/typography'
 
@@ -43,9 +44,11 @@ export const EventPageBody = ({ data, location, pageContext }) => {
       .catch(err => console.error('Failed to load form', err))
   }, [])
 
+  const topMenu = <EventSidebarSummary eventNode={post} />
+
   return (
     <Layout {...{ location, pageContext }} title={siteTitle}>
-      <PageNavLayout {...{ menuItems, pageMenu }} hideParent>
+      <PageNavLayout {...{ menuItems, pageMenu, topMenu }} hideParent>
         <header>
           <h1
             style={{

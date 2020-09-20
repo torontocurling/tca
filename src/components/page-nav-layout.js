@@ -29,15 +29,17 @@ const Menu = styled('nav')`
 
 export const PageNavLayout = ({
   logo,
+  topMenu,
   pageMenu,
   menuItems,
   children,
   hideParent,
 }) => (
   <Container>
-    {(menuItems.length > 0 || logo) && (
+    {(menuItems.length > 0 || logo || topMenu) && (
       <Menu>
         {logo && <img src={logo} style={{ maxWidth: 180 }} />}
+        {topMenu}
         {menuItems.length > 0 && (
           <ul style={{ listStyle: 'none', marginLeft: 0 }}>
             {hideParent !== true && (

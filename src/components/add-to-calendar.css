@@ -1,0 +1,21 @@
+.react-add-to-calendar {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.react-add-to-calendar__dropdown {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #eee;
+  box-shadow: 1px 1px 3px #eee;
+  padding: 10px;
+}
+
+.react-add-to-calendar__dropdown ul {
+  margin: 0 !important;
+  padding: 0;
+  list-style-type: none;
+}

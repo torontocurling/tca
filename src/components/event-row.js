@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import styled from 'styled-components'
-import { add, format } from 'date-fns'
 import { Link } from 'gatsby'
+import { parseEvent } from './event.helpers'
 import { EventDateSummary } from './event-date-summary'
 import { Colors } from '../constants'
 
@@ -18,34 +18,6 @@ const RightSide = styled('div')`
   margin-left: 20px;
   padding-top: 15px;
 `
-
-const estOffset = { hours: 5 }
-
-const parseEvent = ({ start, end, eventcat, eventtype }) => {
-  const startDate = start ? add(new Date(start * 1000), estOffset) : null
-  const endDate = end ? add(new Date(end * 1000), estOffset) : null
-
-  let month
-  let firstDate
-  let firstDay
-  let secondDate
-  let secondDay
-
-  if (start) {
-    month = `${format(startDate, 'MMMM')} ${format(startDate, 'yyyy')}`
-    firstDate = format(startDate, 'd')
-    firstDay = format(startDate, 'E')
-  }
-
-  if (end) {
-    secondDate = format(endDate, 'd')
-    secondDay = format(endDate, 'E')
-  }
-
-  const info = eventcat || (eventtype === 'tca' ? 'TCA' : 'Club')
-
-  return { month, firstDate, firstDay, secondDate, secondDay, info }
-}
 
 export const EventRow = ({ eventNode }) => {
   const {
@@ -74,7 +46,7 @@ export const EventRow = ({ eventNode }) => {
         <h3>
           <Link
             to={eventNode.uri}
-            style={{ color: '#3275b8', textDecoration: 'none' }}
+            style={{ color: Colors.blue, textDecoration: 'none' }}
           >
             {eventNode.title}
           </Link>

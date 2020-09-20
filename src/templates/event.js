@@ -16,6 +16,7 @@ export const pageQuery = graphql`
       id
       databaseId
       content
+      excerpt
       title
       contact
       emaill

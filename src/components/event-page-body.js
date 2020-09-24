@@ -44,6 +44,7 @@ const urlifyHeader = header =>
   header.replace(/\s+/, '-').replace(/[^a-z0-9-]/gi, '')
 
 const parseContent = pageContent => {
+  if (!pageContent) return []
   const parts = pageContent.split(/<h1>/gi)
   return parts.map(part => {
     const header = part.split(/<\/h1>/i).shift()

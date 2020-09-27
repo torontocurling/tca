@@ -45,9 +45,9 @@ const Chevron = styled('span')`
     content: '';
     display: inline-block;
     height: 0.8em;
-    left: 45%;
+    left: 46%;
     position: absolute;
-    top: 45%;
+    top: 40%;
     transform: rotate(45deg);
     vertical-align: top;
     width: 0.8em;

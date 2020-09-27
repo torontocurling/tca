@@ -41,8 +41,10 @@ const getCalendarEvent = ({ title, excerpt, startDate, endDate }) => ({
   title,
   description: excerpt,
   location: '',
-  startTime: startOfDay(startDate).toISOString(),
-  endTime: (endDate ? endOfDay(endDate) : endOfDay(startDate)).toISOString(),
+  startTime: startDate ? startOfDay(startDate).toISOString() : undefined,
+  endTime: endDate
+    ? (endDate ? endOfDay(endDate) : endOfDay(startDate)).toISOString()
+    : undefined,
 })
 
 const infoItemDateFormat = 'MMM. do, yyyy'
@@ -55,16 +57,24 @@ export const EventSidebarSummary = ({ eventNode }) => {
 
   return parsedEvent.month ? (
     <Container>
-      <InfoItem
-        label="Start:"
-        value={format(parsedEvent.startDate, infoItemDateFormat)}
-      />
-      <InfoItem
-        label="End:"
-        value={format(parsedEvent.endDate, infoItemDateFormat)}
-      />
-      <CalendarAddIcon />
-      <AddToCalendar event={calendarEvent} />
+      {parsedEvent.startDate && (
+        <InfoItem
+          label="Start:"
+          value={format(parsedEvent.startDate, infoItemDateFormat)}
+        />
+      )}
+      {parsedEvent.endDate && (
+        <InfoItem
+          label="End:"
+          value={format(parsedEvent.endDate, infoItemDateFormat)}
+        />
+      )}
+      {parsedEvent.startDate && (
+        <>
+          <CalendarAddIcon />
+          <AddToCalendar event={calendarEvent} />
+        </>
+      )}
     </Container>
   ) : null
 }

@@ -50,20 +50,13 @@ const Chevron = styled('span')`
 `
 
 const PendingDate = styled(Date)`
-  font-size: 40px;
+  font-size: 30px;
   color: #ccc;
-`
-
-const DayName = styled('span')`
-  font-size: 12px;
-  text-transform: 'uppercase';
 `
 
 export const EventDateSummary = ({
   month,
   firstDate,
-  firstDay,
-  secondDay,
   secondDate,
   info,
   style,
@@ -77,14 +70,12 @@ export const EventDateSummary = ({
         <>
           <Date>
             <span>{firstDate}</span>
-            <DayName>{firstDay}</DayName>
           </Date>
           {secondDate && secondDate !== firstDate && (
             <>
               <Chevron />
               <Date>
                 <span>{secondDate}</span>
-                <DayName>{secondDay}</DayName>
               </Date>
             </>
           )}

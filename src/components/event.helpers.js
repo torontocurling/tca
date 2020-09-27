@@ -19,7 +19,7 @@ export const parseEvent = ({ start, end, eventcat, eventtype }) => {
   let secondDay
 
   if (startDate) {
-    month = `${format(startDate, 'MMMM')} ${format(startDate, 'yyyy')}`
+    month = `${format(startDate, 'MMM')}. ${format(startDate, 'yyyy')}`
     firstDate = format(startDate, 'd')
     firstDay = format(startDate, 'E')
   }

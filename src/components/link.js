@@ -6,3 +6,7 @@ export const Link = styled(Gatsby.Link)`
   color: ${Colors.blue};
   text-decoration: none;
 `
+
+export const FakeLink = styled('span')`
+  color: ${Colors.darkGrey};
+`

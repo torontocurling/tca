@@ -13,21 +13,30 @@ const findMenu = ({ uri, menus }) => {
   return primaryMenu.node.menuItems.nodes.find(({ url }) => uri.includes(url))
 }
 
-const getRegForm = async eventId =>
-  fetch(
-    `https://torontocurling.com/eventform.php?evid=${eventId}`
-  ).then(response => response.json())
+const regFormResponses = {} // keyed by eventId
 
-const addFormLink = (menuItems, formResponse) =>
-  formResponse?.form?.id
-    ? [
-        ...menuItems,
-        {
-          path: `https://torontocurling.com/event-register?fid=${formResponse.form.id}`,
-          label: 'Online Entry',
-        },
-      ]
-    : menuItems
+const getRegForm = async eventId => {
+  if (regFormResponses[eventId]) {
+    return Promise.resolve(regFormResponses[eventId])
+  }
+
+  return fetch(`https://torontocurling.com/eventform.php?evid=${eventId}`)
+    .then(response => response.json())
+    .then(json => {
+      regFormResponses[eventId] = json
+      return json
+    })
+}
+
+const addFormLink = (menuItems, formResponse) => [
+  ...menuItems,
+  {
+    path: formResponse?.form?.id
+      ? `https://torontocurling.com/event-register?fid=${formResponse.form.id}`
+      : undefined,
+    label: 'Online Entry',
+  },
+]
 
 export const EventPageBody = ({ data, location, pageContext }) => {
   const { uri, menus, eventMenu, eventSection } = pageContext
@@ -57,11 +66,7 @@ export const EventPageBody = ({ data, location, pageContext }) => {
             : post.title
         }
       />
-      <PageNavLayout
-        {...{ menuItems, pageMenu, topMenu }}
-        hideParent
-        pinOnScroll
-      >
+      <PageNavLayout {...{ menuItems, pageMenu, topMenu }} hideParent>
         <header>
           <h1
             style={{

@@ -16,7 +16,7 @@ const hasValidH1 = content => {
   const upperIndex = content.indexOf('<H1')
 
   return (
-    (lowerIndex > 0 && lowerIndex < 50) || (upperIndex > 0 && upperIndex < 50)
+    (lowerIndex >= 0 && lowerIndex < 50) || (upperIndex >= 0 && upperIndex < 50)
   )
 }
 

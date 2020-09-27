@@ -44,7 +44,7 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
 
-        allWpEvent {
+        allWpEvent(filter: { title: { regex: "/TCA/" } }) {
           edges {
             node {
               id

@@ -1,6 +1,6 @@
 import React, { useEffect, useCallback, useRef, useState } from 'react'
 import styled from 'styled-components'
-import { Link } from './link'
+import { Link, FakeLink } from './link'
 import { Colors } from '../constants/colors'
 
 const Container = styled('div')`
@@ -77,7 +77,11 @@ export const PageNavLayout = ({
               )}
               {menuItems.map(menuItem => (
                 <li key={menuItem.path} style={{ marginTop: 20 }}>
-                  <Link to={menuItem.path}>{menuItem.label}</Link>
+                  {!menuItem.path || menuItem.disabled ? (
+                    <FakeLink>{menuItem.label}</FakeLink>
+                  ) : (
+                    <Link to={menuItem.path}>{menuItem.label}</Link>
+                  )}
                 </li>
               ))}
             </ul>

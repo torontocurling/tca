@@ -7,6 +7,11 @@ const Container = styled('div')`
   height: 120px;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 768px) {
+    width: auto;
+    margin: 20px;
+  }
 `
 
 const CrossBar = styled('div')`

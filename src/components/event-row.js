@@ -11,6 +11,10 @@ const Container = styled('div')`
   min-height: 180px;
   margin-bottom: 20px;
   border-bottom: 1px solid #eee;
+
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+  }
 `
 
 const RightSide = styled('div')`

@@ -3,8 +3,14 @@ import { add, format } from 'date-fns'
 const estOffset = { hours: 5 }
 
 export const parseEvent = ({ start, end, eventcat, eventtype }) => {
-  const startDate = start ? add(new Date(start * 1000), estOffset) : null
-  const endDate = end ? add(new Date(end * 1000), estOffset) : null
+  const startDate =
+    typeof start === 'number' && start > 0
+      ? add(new Date(start * 1000), estOffset)
+      : null
+  const endDate =
+    typeof end === 'number' && end > 0
+      ? add(new Date(end * 1000), estOffset)
+      : null
 
   let month
   let firstDate
@@ -12,13 +18,13 @@ export const parseEvent = ({ start, end, eventcat, eventtype }) => {
   let secondDate
   let secondDay
 
-  if (start) {
+  if (startDate) {
     month = `${format(startDate, 'MMMM')} ${format(startDate, 'yyyy')}`
     firstDate = format(startDate, 'd')
     firstDay = format(startDate, 'E')
   }
 
-  if (end) {
+  if (endDate) {
     secondDate = format(endDate, 'd')
     secondDay = format(endDate, 'E')
   }

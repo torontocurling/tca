@@ -12,8 +12,24 @@ const today = Date.now()
 
 const filterSortEvents = eventNodes =>
   eventNodes
-    .filter(({ node }) => !node.start || node.start * 1000 > today)
-    .sort((a, b) => a.node.start - b.node.start)
+    .filter(
+      ({ node }) =>
+        !node.start ||
+        (node.start === -1 && node.end === -1) ||
+        node.start * 1000 > today
+    )
+    .sort((a, b) => {
+      if (a.node.start === -1 && b.node.start !== -1) {
+        return 1
+      }
+      if (b.node.start === -1 && a.node.start !== -1) {
+        return -1
+      }
+      if (a.node.start === -1 && b.node.start === -1) {
+        return a.node.title.localeCompare(b.node.title)
+      }
+      return a.node.start - b.node.start
+    })
 
 const FindAnEvent = ({ data, location, pageContext }) => {
   const siteTitle = data.site.siteMetadata.title

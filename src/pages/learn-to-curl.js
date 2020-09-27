@@ -22,7 +22,6 @@ const LearnToCurl = ({ data, location, pageContext }) => {
         text={
           'Curling facilities in Toronto offer "Learn to Curl" sessions and beginner events throughout the season. We can help you find one close by.'
         }
-        renderForm={renderLearnToCurlFilterForm}
       />
       <EmptyState listingType="learn to curl" />
     </Layout>

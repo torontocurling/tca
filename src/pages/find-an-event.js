@@ -32,7 +32,6 @@ const FindAnEvent = ({ data, location, pageContext }) => {
         style={{ marginBottom: 20 }}
         onSubmit={() => {}}
         text={'Find an event to participate in this season'}
-        renderForm={renderFindAnEventFilterForm}
       />
       {events.length > 0 ? (
         events.map(({ node }) => <EventRow eventNode={node} />)

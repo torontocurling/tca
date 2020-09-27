@@ -20,7 +20,6 @@ const SelectALeague = ({ data, location, pageContext }) => {
       <HeroForm
         onSubmit={() => {}}
         text={'Find a weekly curling league that fits your schedule'}
-        renderForm={renderSelectALeagueFilterForm}
       />
       <EmptyState listingType="league" />
     </Layout>

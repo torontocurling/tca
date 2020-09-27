@@ -15,11 +15,13 @@ export const HeroForm = props => {
       <h3 style={{ color: 'white', lineHeight: 1.3, textAlign: 'center' }}>
         {props.text}
       </h3>
-      <Form
-        onSubmit={props.onSubmit}
-        validate={props.validate}
-        render={props.renderForm}
-      />
+      {props.renderForm && (
+        <Form
+          onSubmit={props.onSubmit}
+          validate={props.validate}
+          render={props.renderForm}
+        />
+      )}
     </div>
   )
 }

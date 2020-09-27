@@ -1,6 +1,11 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
+const {
+  parseEventContent,
+  getEventMenuLinks,
+} = require('./src/page-support/event')
+
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
@@ -8,6 +13,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const pageTemplate = path.resolve(`./src/templates/page.js`)
   const eventPageTemplate = path.resolve(`./src/templates/event.js`)
   const clubPageTemplate = path.resolve(`./src/templates/club-page.js`)
+
   const result = await graphql(
     `
       {
@@ -43,6 +49,7 @@ exports.createPages = async ({ graphql, actions }) => {
             node {
               id
               uri
+              content
             }
           }
         }
@@ -125,14 +132,44 @@ exports.createPages = async ({ graphql, actions }) => {
   const events = result.data.allWpEvent.edges
 
   events.forEach((page, index) => {
-    createPage({
-      path: page.node.uri,
-      component: eventPageTemplate,
-      context: {
-        id: page.node.id,
-        uri: page.node.uri,
-        menus,
-      },
+    const baseUri = page.node.uri // ie: events/tca-something-or-other
+    const eventSections = parseEventContent(page.node.content)
+    if (!eventSections) {
+      const uri = baseUri
+
+      createPage({
+        path: uri,
+        component: eventPageTemplate,
+        context: {
+          id: page.node.id,
+          uri,
+          menus,
+          eventMenu: [],
+          eventSection: {
+            body: page.node.content,
+          },
+        },
+      })
+
+      return
+    }
+
+    const eventMenu = getEventMenuLinks({ baseUri, eventSections })
+
+    eventSections.forEach((eventSection, sectionIndex) => {
+      const uri = sectionIndex === 0 ? baseUri : `${baseUri}/${eventSection.id}`
+
+      createPage({
+        path: uri,
+        component: eventPageTemplate,
+        context: {
+          id: page.node.id,
+          uri,
+          menus,
+          eventMenu,
+          eventSection,
+        },
+      })
     })
   })
 }

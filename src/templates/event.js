@@ -15,8 +15,6 @@ export const pageQuery = graphql`
     wpEvent(id: { eq: $id }) {
       id
       databaseId
-      content
-      excerpt
       title
       contact
       emaill

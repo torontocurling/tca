@@ -1,4 +1,5 @@
 import React from 'react'
+import SEO from './seo'
 import Layout from './layout'
 import { ClubMap } from './club-map'
 import { Colors } from '../constants/colors'
@@ -24,6 +25,7 @@ export const ClubPageBody = ({ data, location, pageContext }) => {
 
   return (
     <Layout {...{ location, pageContext }} title={siteTitle}>
+      <SEO title={club.title} />
       <PageNavLayout {...{ logo, menuItems, pageMenu }}>
         <header>
           <h1

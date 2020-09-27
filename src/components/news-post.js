@@ -1,4 +1,5 @@
 import React from 'react'
+import SEO from './seo'
 import Layout from './layout'
 
 import { rhythm, scale } from '../utils/typography'
@@ -22,6 +23,7 @@ export const NewsPost = ({ data, location, pageContext }) => {
 
   return (
     <Layout {...{ location, pageContext }} title={siteTitle}>
+      <SEO title={post.title} />
       <article>
         <header>
           <h1

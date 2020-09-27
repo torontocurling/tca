@@ -1,4 +1,5 @@
 import React from 'react'
+import SEO from './seo'
 import Layout from './layout'
 import { PageNavLayout } from './page-nav-layout'
 import { Colors } from '../constants/colors'
@@ -20,6 +21,7 @@ export const PageBody = ({ data, location, pageContext }) => {
 
   return (
     <Layout {...{ location, pageContext }} title={siteTitle}>
+      <SEO title={post.title} />
       <PageNavLayout {...{ menuItems, pageMenu }}>
         <header>
           <h1

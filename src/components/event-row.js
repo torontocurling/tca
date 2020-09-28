@@ -55,7 +55,7 @@ export const EventRow = ({ eventNode }) => {
             {eventNode.title}
           </Link>
         </h3>
-        <p dangerouslySetInnerHTML={{ __html: eventNode.excerpt }} />
+        <div dangerouslySetInnerHTML={{ __html: eventNode.excerpt }} />
       </RightSide>
     </Container>
   )

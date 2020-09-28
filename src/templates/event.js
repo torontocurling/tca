@@ -15,7 +15,6 @@ export const pageQuery = graphql`
     wpEvent(id: { eq: $id }) {
       id
       databaseId
-      excerpt # required to avoid it disappearing on index page on hard reload (??)
       title
       contact
       emaill

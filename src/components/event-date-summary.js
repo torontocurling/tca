@@ -67,7 +67,7 @@ export const EventDateSummary = ({
   style,
 }) => (
   <Container style={style}>
-    <CrossBar>{!firstDate && !secondDate ? 'Planned' : month}</CrossBar>
+    <CrossBar>{!firstDate && !secondDate ? 'Date' : month}</CrossBar>
     <DateRange>
       {!firstDate && !secondDate ? (
         <PendingDate>TBD</PendingDate>

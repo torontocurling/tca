@@ -19,6 +19,10 @@ export const PageBody = ({ data, location, pageContext }) => {
   const pageMenu = findMenu({ uri, menus })
   const menuItems = pageMenu?.childItems?.nodes || []
 
+  if (uri === '/event-register/') {
+    window.location.reload()
+  }
+
   return (
     <Layout {...{ location, pageContext }} title={siteTitle}>
       <SEO title={post.title} />

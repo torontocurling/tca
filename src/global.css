@@ -1,3 +1,17 @@
 a {
   color: #235180;
 }
+
+/* wordpress css */
+
+/* image alignment */
+
+.alignright {
+  float: right;
+  margin-left: 10px;
+}
+
+.alignleft {
+  float: left;
+  margin-right: 10px;
+}

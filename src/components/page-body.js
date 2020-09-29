@@ -19,7 +19,7 @@ export const PageBody = ({ data, location, pageContext }) => {
   const pageMenu = findMenu({ uri, menus })
   const menuItems = pageMenu?.childItems?.nodes || []
 
-  if (uri === '/event-register/') {
+  if (typeof window === 'object' && uri === '/event-register/') {
     window.location.reload()
   }
 

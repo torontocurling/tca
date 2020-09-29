@@ -172,7 +172,7 @@ export const SocialSubscribe = () => {
         <a href="https://twitter.com/torontocurling">
           <GrTwitter />
         </a>
-        <a href="http://www.facebook.com/#%21/pages/Toronto-Curling-Association/225152384208614">
+        <a href="https://www.facebook.com/torontocurling">
           <GrFacebook />
         </a>
       </IconBox>

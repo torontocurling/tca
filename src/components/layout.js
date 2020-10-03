@@ -94,6 +94,7 @@ const Header = () => {
     <>
       <header
         style={{
+          width: '100%', // required w/ flex column to fill width
           flexDirection: 'row',
           display: 'flex',
           paddingBottom: 20,
@@ -138,6 +139,8 @@ const Layout = ({ location, title, children, pageContext }) => {
       <Header />
       <div
         style={{
+          flex: 1, // pins the footer combined with global.css body styles
+          width: '100%', // required w/ flex column to fill width
           ...bodyContainerStyle,
         }}
       >

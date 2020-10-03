@@ -40,7 +40,7 @@ const SubscribeButton = styled('button')`
 
 const EmailForm = ({ handleSubmit, loading }) => (
   <form onSubmit={handleSubmit}>
-    <EmailInput name="email" component="input" placeholder="your@email.com" />
+    <EmailInput name="email" component="input" placeholder="Your Email" />
     <SubscribeButton type="submit">
       {loading ? 'Subscribing...' : 'Subscribe'}
     </SubscribeButton>

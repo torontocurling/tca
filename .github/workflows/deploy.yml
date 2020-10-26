@@ -1,8 +1,8 @@
 name: Build and Deploy
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "0,30 12-23,0-4 * * *"
+#  schedule:
+#    - cron: "0,30 12-23,0-4 * * *"
   push:
     branches:
       - master
@@ -28,7 +28,7 @@ jobs:
       - name: Cache gatsby build
         uses: actions/cache@v2
         env:
-          cache-name: cache-gatsby-build-v5
+          cache-name: cache-gatsby-build-v6
         with:
           path: .cache
           key: ${{ runner.os }}-gatsby-build-${{ env.cache-name }}-${{ hashFiles('**/gatsby-node.js', '**/yarn.lock', '**/gatsby-config.js') }}
@@ -38,7 +38,7 @@ jobs:
       - name: Cache gatsby public
         uses: actions/cache@v2
         env:
-          cache-name: cache-gatsby-public-v5
+          cache-name: cache-gatsby-public-v6
         with:
           path: public/
           key: ${{ runner.os }}-gatsby-public-${{ env.cache-name }}-${{ hashFiles('**/gatsby-node.js', '**/yarn.lock', '**/gatsby-config.js') }}

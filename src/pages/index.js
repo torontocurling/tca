@@ -40,7 +40,7 @@ const FrontPage = ({ data, location, pageContext }) => {
         <InfoIcon>
           <GrCircleInformation />
         </InfoIcon>
-        COVID-19: Read the latest on returning to curling
+        COVID-19 Updates and helpful resources for curling facilities
       </BannerButton>
       <CarouselHero label="Your GTA Curling Hub" style={{ marginBottom: 35 }} />
       <PostList posts={posts} />

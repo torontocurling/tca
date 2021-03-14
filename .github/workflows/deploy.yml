@@ -38,7 +38,7 @@ jobs:
       - name: Cache gatsby public
         uses: actions/cache@v2
         env:
-          cache-name: cache-gatsby-public-v9
+          cache-name: cache-gatsby-public-v10
         with:
           path: public/
           key: ${{ runner.os }}-gatsby-public-${{ env.cache-name }}-${{ hashFiles('**/gatsby-node.js', '**/yarn.lock', '**/gatsby-config.js') }}

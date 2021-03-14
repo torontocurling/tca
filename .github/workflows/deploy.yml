@@ -28,7 +28,7 @@ jobs:
       - name: Cache gatsby build
         uses: actions/cache@v2
         env:
-          cache-name: cache-gatsby-build-v9
+          cache-name: cache-gatsby-build-v10
         with:
           path: .cache
           key: ${{ runner.os }}-gatsby-build-${{ env.cache-name }}-${{ hashFiles('**/gatsby-node.js', '**/yarn.lock', '**/gatsby-config.js') }}

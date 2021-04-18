@@ -23,7 +23,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-wordpress-experimental`,
+      resolve: `gatsby-source-wordpress`,
       options: {
         url: process.env.WPGRAPHQL_URL || 'https://torontocurling.com/graphql',
         schema: {
@@ -31,6 +31,7 @@ module.exports = {
           timeout: 60 * 1000 * 5, // 5 mins
           perPage: 5, // required b/c our server has memory issues
           queryDepth: 5,
+          requestConcurrency: 5,
         },
         // type: {
         //   Page: {

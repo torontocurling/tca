@@ -1,0 +1,13 @@
+diff --git a/node_modules/gatsby-source-wordpress/dist/steps/ingest-remote-schema/diff-schemas.js b/node_modules/gatsby-source-wordpress/dist/steps/ingest-remote-schema/diff-schemas.js
+index c27b242..e278dd6 100644
+--- a/node_modules/gatsby-source-wordpress/dist/steps/ingest-remote-schema/diff-schemas.js
++++ b/node_modules/gatsby-source-wordpress/dist/steps/ingest-remote-schema/diff-schemas.js
+@@ -78,6 +78,8 @@ Please consider addressing this issue by changing your WordPress settings or plu
+   let cachedSchemaMd5 = await helpers.cache.get(_constants.MD5_CACHE_KEY);
+   let foundUsableHardCachedData;
+ 
++  console.log('>>', { cachedSchemaMd5, schemaMd5, lastCompletedSourceTime })
++
+   if (!cachedSchemaMd5) {
+     cachedSchemaMd5 = await (0, _cache.getHardCachedData)({
+       key: _constants.MD5_CACHE_KEY

@@ -52,7 +52,7 @@
   "license": "0BSD",
   "main": "n/a",
   "scripts": {
-    "build": "NODE_ENV=production GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
+    "build": "NODE_ENV=production gatsby build --log-pages",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",

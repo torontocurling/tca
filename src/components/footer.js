@@ -18,6 +18,7 @@ export const Footer = ({ menus }) => {
           >
             {menuItems.nodes.map(menuItem => (
               <Link
+                key={menuItem.path}
                 to={menuItem.path}
                 style={{
                   fontWeight: 'bold',

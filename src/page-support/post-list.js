@@ -33,7 +33,7 @@ const PostItem = ({ title, content, slug, featuredImage }) => {
 export const PostList = props => (
   <>
     {props.posts.map(({ node }) => (
-      <PostItem {...node} />
+      <PostItem key={node.slug} {...node} />
     ))}
   </>
 )

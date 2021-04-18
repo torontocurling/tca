@@ -2,12 +2,12 @@ import styled from 'styled-components'
 import React, { useState } from 'react'
 import { useTimeout } from '../utils/use-timeout'
 
-const outdoor = require('../assets/outdoor.jpg')
+const outdoor = require('../assets/outdoor.jpg').default
 
 const images = [
   outdoor,
-  require('../assets/lessons.jpeg'),
-  require('../assets/goldlinepeople.jpg'),
+  require('../assets/lessons.jpeg').default,
+  require('../assets/goldlinepeople.jpg').default,
 ]
 
 const outdoorIndex = images.indexOf(outdoor)
@@ -59,9 +59,16 @@ export const CarouselHero = ({ style }) => {
   return (
     <div style={style}>
       <HeroContainer>
-        {images.map((imgName, i) => (
-          <HeroImage key={imgName} src={imgName} visible={i === currentIndex} />
-        ))}
+        {images.map((imgName, i) => {
+          console.log(imgName)
+          return (
+            <HeroImage
+              key={imgName}
+              src={imgName}
+              visible={i === currentIndex}
+            />
+          )
+        })}
         {currentIndex === outdoorIndex && (
           <Caption>Photo: Rock Solid Productions Inc.</Caption>
         )}

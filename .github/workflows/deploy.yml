@@ -48,6 +48,9 @@ jobs:
       - name: Install node_modules
         run: yarn install --pure-lockfile
 
+      - name: Show caches
+        run: ls -la .cache && ls -la public
+
       - name: Gatsby build
         run: yarn build
 

@@ -48,11 +48,14 @@ jobs:
       - name: Install node_modules
         run: yarn install --pure-lockfile
 
-      - name: Show caches
-        run: ls -la .cache && ls -la public
+      - name: Save prior cache
+        run: cp -r public public-cached
 
       - name: Gatsby build
         run: yarn build
+
+      - name: Diff build vs. cache
+        run: diff -u -r public-cached public
 
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@v1.5.0

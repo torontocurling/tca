@@ -59,16 +59,9 @@ export const CarouselHero = ({ style }) => {
   return (
     <div style={style}>
       <HeroContainer>
-        {images.map((imgName, i) => {
-          console.log(imgName)
-          return (
-            <HeroImage
-              key={imgName}
-              src={imgName}
-              visible={i === currentIndex}
-            />
-          )
-        })}
+        {images.map((imgName, i) => (
+          <HeroImage key={imgName} src={imgName} visible={i === currentIndex} />
+        ))}
         {currentIndex === outdoorIndex && (
           <Caption>Photo: Rock Solid Productions Inc.</Caption>
         )}

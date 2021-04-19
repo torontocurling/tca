@@ -48,20 +48,8 @@ jobs:
       - name: Install node_modules
         run: yarn install --pure-lockfile
 
-      - name: Save prior cache
-        run: cp -r public public-cached
-
-      - name: Check modified time before
-        run: grep -rnw ./.cache/ -e 'WPGQL-last-completed-source-time'
-
       - name: Gatsby build
         run: yarn build
-
-      - name: Check modified time after
-        run: grep -rnw ./.cache/ -e 'WPGQL-last-completed-source-time'
-
-      - name: Diff build vs. cache
-        run: diff -u -r public-cached public
 
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@v1.5.0

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { GrMenu, GrClose } from 'react-icons/gr'
-import Logo from '../assets/PrideLogo.svg'
+import Logo from '../assets/logo.svg'
 import { Footer } from './footer'
 import { bodyContainerStyle } from './layout.styles'
 import { Colors } from '../constants'
